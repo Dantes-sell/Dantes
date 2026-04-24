@@ -1,0 +1,9 @@
+{
+  "hitsound.moan1":    { "sounds": [{"name": "dantes:moan1"}] },
+  "hitsound.moan2":    { "sounds": [{"name": "dantes:moan2"}] },
+  "hitsound.moan3":    { "sounds": [{"name": "dantes:moan3"}] },
+  "hitsound.moan4":    { "sounds": [{"name": "dantes:moan4"}] },
+  "hitsound.metallic": { "sounds": [{"name": "dantes:metallic"}] },
+  "hitsound.crime":    { "sounds": [{"name": "dantes:crime"}] }
+}
+

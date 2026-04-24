@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dantes UID Portal</title>
+  <meta name="description" content="Dantes UID Portal - быстрый способ получить UID и активировать подписку." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./css/site.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="#top">Dantes UID</a>
+      <nav>
+        <a href="#features">Возможности</a>
+        <a href="#steps">Как это работает</a>
+        <a class="btn btn-outline" href="#contact">Контакты</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero container">
+      <div class="hero-content">
+        <span class="eyebrow">Dantes UID</span>
+        <h1>Сайт для быстрой активации подписки</h1>
+        <p>
+          Регистрируйтесь, получайте персональный UID и отправляйте его продавцу.
+          Статус активации можно отслеживать в вашем личном процессе поддержки.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#contact">Получить UID</a>
+          <a class="btn btn-outline" href="#steps">Как это работает</a>
+        </div>
+      </div>
+      <aside class="hero-panel" id="steps">
+        <h3>Как это работает</h3>
+        <ol>
+          <li>Оставляете заявку на получение UID.</li>
+          <li>Получаете уникальный UID от продавца.</li>
+          <li>Передаёте UID для активации подписки.</li>
+          <li>Получаете подтверждение активации.</li>
+        </ol>
+      </aside>
+    </section>
+
+    <section class="container features" id="features">
+      <article class="feature-card">
+        <h4>Мгновенная выдача UID</h4>
+        <p>UID формируется быстро, чтобы вы не ждали активацию подписки.</p>
+      </article>
+      <article class="feature-card">
+        <h4>Простой процесс</h4>
+        <p>Без сложной регистрации: понятные шаги от заявки до активации.</p>
+      </article>
+      <article class="feature-card">
+        <h4>Поддержка 24/7</h4>
+        <p>Можно обратиться в поддержку в любое время, если возникли вопросы.</p>
+      </article>
+      <article class="feature-card">
+        <h4>Понятный статус</h4>
+        <p>Вы всегда знаете, на каком этапе находится активация.</p>
+      </article>
+    </section>
+
+    <section class="container contact" id="contact">
+      <h2>Оставить заявку</h2>
+      <p>Укажи удобный способ связи, и с тобой свяжутся для выдачи UID.</p>
+      <form class="contact-form" onsubmit="return sendRequest(event)">
+        <label>
+          Ваше имя
+          <input type="text" id="name" required />
+        </label>
+        <label>
+          Telegram или Email
+          <input type="text" id="contactValue" required />
+        </label>
+        <button type="submit" class="btn btn-primary">Отправить заявку</button>
+      </form>
+      <p class="hint" id="formStatus"></p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">© 2026 Dantes UID Portal</div>
+  </footer>
+
+  <script src="./js/site.js"></script>
+</body>
+</html>

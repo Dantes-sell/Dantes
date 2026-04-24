@@ -1,0 +1,23 @@
+  {
+  "schemaVersion": 1,
+  "id": "dantes",
+  "version": "${version}",
+  "name": "Dantes Client",
+  "description": "",
+  "authors": [],
+  "contact": {},
+  "license": "All-Rights-Reserved",
+  "icon": "assets/dantes/icons/avatar.png",
+  "environment": "client",
+  "mixins": [
+    "cloud.mixins.json"
+  ],
+  "accessWidener": "zenith.accesswidener",
+
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}
+

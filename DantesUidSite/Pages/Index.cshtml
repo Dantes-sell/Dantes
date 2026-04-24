@@ -1,0 +1,68 @@
+@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Главная";
+}
+
+<section class="hero mb-4">
+    <div class="hero-grid">
+        <div class="hero-content">
+            <span class="eyebrow">Dantes UID</span>
+            <h1>Сайт для быстрой активации подписки</h1>
+            <p>
+                Регистрируйтесь, получайте персональный UID и отправляйте его продавцу.
+                Всё прозрачно: статус подписки и дата регистрации всегда доступны в личном кабинете.
+            </p>
+            <div class="hero-actions">
+                <a class="btn btn-primary btn-lg" asp-page="/Register">Создать аккаунт</a>
+                <a class="btn btn-outline-light btn-lg" asp-page="/Login">У меня уже есть вход</a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <strong>1 минута</strong>
+                    <span>до получения UID</span>
+                </div>
+                <div class="stat-item">
+                    <strong>24/7</strong>
+                    <span>доступ к кабинету</span>
+                </div>
+            </div>
+        </div>
+        <aside class="hero-panel">
+            <h3>Как это работает</h3>
+            <ol>
+                <li>Создаёте аккаунт за пару кликов.</li>
+                <li>Получаете уникальный UID.</li>
+                <li>Передаёте UID продавцу для активации.</li>
+                <li>Проверяете статус подписки в кабинете.</li>
+            </ol>
+        </aside>
+    </div>
+</section>
+
+<section class="row g-3">
+    <div class="col-md-6">
+        <div class="feature-card">
+            <h4>Мгновенная выдача UID</h4>
+            <p>После регистрации UID создаётся автоматически. Его можно сразу отправить на активацию подписки.</p>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="feature-card">
+            <h4>Простой вход</h4>
+            <p>Авторизуйтесь по логину или email и паролю. Никаких сложных действий и лишних шагов.</p>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="feature-card">
+            <h4>Защищённые данные</h4>
+            <p>Пароли не хранятся в открытом виде: используется salted PBKDF2-хеширование в базе данных.</p>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="feature-card">
+            <h4>Понятный статус</h4>
+            <p>В кабинете всегда видно UID, активность подписки и дату регистрации, без скрытых полей.</p>
+        </div>
+    </div>
+</section>

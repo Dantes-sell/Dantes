@@ -1,0 +1,23 @@
+@page
+@model DantesUidSite.Pages.DashboardModel
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<div class="form-card">
+    <h2 class="mb-3">Your Account</h2>
+
+    <div class="mb-3">
+        <label class="form-label">UID</label>
+        <div class="uid-box">@Model.UserUid</div>
+    </div>
+
+    <div class="mb-2"><strong>Login:</strong> @Model.Login</div>
+    <div class="mb-2"><strong>Email:</strong> @Model.Email</div>
+    <div class="mb-2"><strong>Subscription:</strong> @Model.Subscription</div>
+    <div class="mb-3"><strong>Registered (UTC):</strong> @Model.CreatedAtUtc</div>
+
+    <div class="alert alert-info mt-3">
+        Send this UID to the seller/admin to receive your subscription activation.
+    </div>
+</div>

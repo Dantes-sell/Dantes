@@ -1,0 +1,231 @@
+:root {
+  --bg-deep: #0a1420;
+  --bg-accent: #12335f;
+  --text-main: #ecf7ff;
+  --text-soft: #b9cbe0;
+  --line: rgba(167, 206, 255, 0.28);
+  --card-bg: rgba(17, 36, 58, 0.76);
+  --primary: #4fb6ff;
+  --primary-strong: #2e94e0;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: "Manrope", "Segoe UI", sans-serif;
+  background:
+    radial-gradient(circle at 10% 5%, rgba(79, 182, 255, 0.25), transparent 35%),
+    radial-gradient(circle at 90% 15%, rgba(61, 131, 255, 0.14), transparent 30%),
+    linear-gradient(155deg, var(--bg-accent) 0%, #10253f 34%, var(--bg-deep) 100%);
+  color: var(--text-main);
+  min-height: 100vh;
+  margin-bottom: 60px;
+}
+
+h1,
+h2,
+h3,
+h4,
+.navbar-brand {
+  font-family: "Space Grotesk", "Segoe UI", sans-serif;
+}
+
+.container {
+  max-width: 1080px;
+}
+
+.app-nav {
+  background-color: rgba(5, 12, 23, 0.84);
+  backdrop-filter: blur(10px);
+}
+
+.hero {
+  background: linear-gradient(135deg, rgba(15, 38, 62, 0.78), rgba(9, 23, 41, 0.9));
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  padding: 2rem;
+  box-shadow: 0 26px 56px rgba(0, 0, 0, 0.25);
+}
+
+.hero-grid {
+  display: grid;
+  gap: 1.4rem;
+  grid-template-columns: 2fr 1fr;
+  align-items: start;
+}
+
+.hero-content h1 {
+  font-size: clamp(1.9rem, 4vw, 3rem);
+  line-height: 1.05;
+  margin: 0.6rem 0 1rem;
+}
+
+.hero-content p {
+  color: var(--text-soft);
+  max-width: 680px;
+}
+
+.eyebrow {
+  display: inline-block;
+  border-radius: 999px;
+  padding: 0.38rem 0.82rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: 1px solid rgba(155, 218, 255, 0.5);
+  color: #d7eeff;
+  background: rgba(45, 123, 196, 0.28);
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.hero-stats {
+  display: flex;
+  gap: 0.8rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+.stat-item {
+  min-width: 160px;
+  border: 1px solid var(--line);
+  background: rgba(10, 24, 40, 0.68);
+  border-radius: 14px;
+  padding: 0.7rem 0.95rem;
+}
+
+.stat-item strong {
+  display: block;
+  font-size: 1.1rem;
+  color: #dff3ff;
+}
+
+.stat-item span {
+  font-size: 0.9rem;
+  color: #b6cce0;
+}
+
+.hero-panel {
+  border: 1px solid rgba(161, 203, 242, 0.3);
+  border-radius: 16px;
+  background: rgba(13, 29, 48, 0.86);
+  padding: 1rem 1.1rem;
+}
+
+.hero-panel h3 {
+  margin-bottom: 0.8rem;
+}
+
+.hero-panel ol {
+  margin: 0;
+  padding-left: 1.1rem;
+  color: var(--text-soft);
+}
+
+.hero-panel li + li {
+  margin-top: 0.35rem;
+}
+
+.feature-card {
+  height: 100%;
+  background: var(--card-bg);
+  border: 1px solid rgba(156, 201, 245, 0.23);
+  border-radius: 14px;
+  padding: 1rem;
+  transform: translateY(0);
+  transition: transform 180ms ease, border-color 180ms ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(199, 229, 255, 0.6);
+}
+
+.feature-card p {
+  color: var(--text-soft);
+}
+
+.form-card {
+  max-width: 560px;
+  margin: 0 auto;
+  background: rgba(18, 38, 61, 0.88);
+  border: 1px solid rgba(146, 191, 235, 0.35);
+  border-radius: 14px;
+  padding: 1.25rem;
+}
+
+.form-control {
+  background: rgba(255, 255, 255, 0.96);
+  border-color: rgba(101, 145, 184, 0.4);
+}
+
+.uid-box {
+  font-size: 1.15rem;
+  font-weight: 700;
+  background: #0f1e33;
+  border: 1px solid #5faef0;
+  border-radius: 10px;
+  padding: 0.7rem 0.9rem;
+  color: #cef0ff;
+}
+
+.btn-primary {
+  background: linear-gradient(125deg, var(--primary), var(--primary-strong));
+  border: none;
+  font-weight: 700;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(125deg, #6ac2ff, #399fe8);
+}
+
+.btn-outline-light {
+  border-color: #9ecdf0;
+  color: #dff4ff;
+}
+
+.btn-outline-light:hover {
+  background: rgba(190, 225, 247, 0.14);
+  color: #fff;
+}
+
+.footer {
+  background: transparent;
+}
+
+.validation-summary-errors ul {
+  margin-bottom: 0;
+}
+
+.hero,
+.feature-card {
+  animation: rise-in 420ms ease both;
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 992px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    padding: 1.4rem;
+  }
+}

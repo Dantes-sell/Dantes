@@ -1,0 +1,46 @@
+# Java / Gradle
+*.class
+*.jar
+*.war
+*.nar
+*.ear
+.gradle/
+build/
+out/
+target/
+
+# Runtime and launcher-generated data
+run/
+launcher-session.json
+launcher-state.json
+launcher-remember.txt
+launcher-accounts.txt
+Dantes-Launcher-Log.txt
+gradle_runclient.out.log
+gradle_runclient.err.log
+run_interface_mind.out.log
+run_interface_mind.err.log
+webtrap_compile.log
+
+# Logs and crash dumps
+*.log
+hs_err_pid*
+replay_pid*
+
+# Archives
+*.zip
+*.tar.gz
+*.rar
+
+# IntelliJ / IDE
+.idea/
+*.iml
+.vscode/
+
+# OS files
+Thumbs.db
+desktop.ini
+.DS_Store
+
+DantesUidSite/.git_backup_local/
+
