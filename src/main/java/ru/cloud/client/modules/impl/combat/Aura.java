@@ -1,4 +1,4 @@
-﻿package ru.cloud.client.modules.impl.combat;
+package ru.cloud.client.modules.impl.combat;
 
 import com.darkmagician6.eventapi.EventTarget;
 import lombok.Getter;
@@ -42,7 +42,7 @@ import java.util.Random;
 
 import static ru.cloud.utility.game.player.MovingUtil.fixMovement;
 
-@ModuleAnnotation(name = "Aura", category = Category.COMBAT, description = "Settings for Aura")
+@ModuleAnnotation(name = "Aura", category = Category.COMBAT, description = "Настройки модуля Aura")
 public final class Aura extends Module {
 
     public static final Aura INSTANCE = new Aura();

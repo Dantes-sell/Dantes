@@ -1,4 +1,4 @@
-﻿package ru.cloud.client.modules.impl.player;
+package ru.cloud.client.modules.impl.player;
 
 import com.darkmagician6.eventapi.EventTarget;
 import lombok.AccessLevel;
@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.Random;
 
 @FieldDefaults(level = AccessLevel.PRIVATE)
-@ModuleAnnotation(name = "ChatBulling", category = Category.PLAYER, description = "Settings for ChatBulling")
+@ModuleAnnotation(name = "ChatBulling", category = Category.PLAYER, description = "Настройки модуля ChatBulling")
 public final class ChatBulling extends Module {
 
     public static final ChatBulling INSTANCE = new ChatBulling();
@@ -45,9 +45,9 @@ public final class ChatBulling extends Module {
             "%s, GG.",
             "%s, неплохая попытка.",
             "%s, до следующего раунда.",
-            "%s skill issue detected. CloudClient powered by gods",
-            "%s L + ratio + CloudClient boost",
-            "%s bro got cooked by CloudClient LMAOOO",
+            "%s, навык не найден. Dantes уже впереди.",
+            "%s, без шансов. Dantes сильнее.",
+            "%s, тебя переиграл Dantes.",
             "%s, тренируйся дальше.",
             "%s, реванш?",
             "%s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s"

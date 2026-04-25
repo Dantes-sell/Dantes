@@ -1,4 +1,4 @@
-﻿package ru.cloud.client.modules.impl.combat;
+package ru.cloud.client.modules.impl.combat;
 
 import com.darkmagician6.eventapi.EventTarget;
 import net.minecraft.block.Block;
@@ -30,7 +30,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.stream.IntStream;
 
-@ModuleAnnotation(name = "AutoTotem", category = Category.COMBAT, description = "Settings for AutoTotem")
+@ModuleAnnotation(name = "AutoTotem", category = Category.COMBAT, description = "Настройки модуля AutoTotem")
 public final class AutoTotem extends Module {
 
     public static final AutoTotem INSTANCE = new AutoTotem();

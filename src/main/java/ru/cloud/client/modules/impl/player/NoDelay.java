@@ -1,4 +1,4 @@
-﻿package ru.cloud.client.modules.impl.player;
+package ru.cloud.client.modules.impl.player;
 
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
@@ -11,14 +11,14 @@ import ru.cloud.client.modules.api.ModuleAnnotation;
 import ru.cloud.client.modules.api.setting.impl.BooleanSetting;
 import ru.cloud.client.modules.api.setting.impl.NumberSetting;
 
-@ModuleAnnotation(name = "NoDelay", category = Category.PLAYER, description = "Settings for NoDelay")
+@ModuleAnnotation(name = "NoDelay", category = Category.PLAYER, description = "????????? ?????? NoDelay")
 public final class NoDelay extends Module {
     public static final NoDelay INSTANCE = new NoDelay();
 
-    public final BooleanSetting useItem = new BooleanSetting("Use Item", true);
-    public final BooleanSetting jump    = new BooleanSetting("Jump",     false);
+    public final BooleanSetting useItem = new BooleanSetting("???????????? ???????", true);
+    public final BooleanSetting jump    = new BooleanSetting("??????", false);
 
-    public final NumberSetting jumpDelay = new NumberSetting("Jump Delay", 0, 0, 10, 1,
+    public final NumberSetting jumpDelay = new NumberSetting("???????? ??????", 0, 0, 10, 1,
             () -> jump.isEnabled());
 
     private int jumpTimer = 0;
@@ -72,4 +72,8 @@ public final class NoDelay extends Module {
         jumpTimer = 0;
     }
 }
+
+
+
+
 

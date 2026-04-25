@@ -1,4 +1,4 @@
-﻿package ru.cloud.client.screens.dropdown;
+package ru.cloud.client.screens.dropdown;
 
 import ru.cloud.Zenith;
 import ru.cloud.base.font.Fonts;

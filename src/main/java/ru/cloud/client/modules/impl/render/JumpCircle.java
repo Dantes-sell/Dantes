@@ -1,4 +1,4 @@
-﻿package ru.cloud.client.modules.impl.render;
+package ru.cloud.client.modules.impl.render;
 
 import com.darkmagician6.eventapi.EventTarget;
 import com.mojang.blaze3d.platform.GlStateManager;
@@ -24,29 +24,29 @@ import ru.cloud.utility.render.level.Render3DUtil;
 
 import java.util.*;
 
-@ModuleAnnotation(name = "JumpCircle", category = Category.RENDER, description = "Settings for JumpCircle")
+@ModuleAnnotation(name = "JumpCircle", category = Category.RENDER, description = "????????? ?????? JumpCircle")
 public final class JumpCircle extends Module {
     public static final JumpCircle INSTANCE = new JumpCircle();
 
     // mode
-    private final ModeSetting mode     = new ModeSetting("Режим");
+    private final ModeSetting mode     = new ModeSetting("?????");
     private final ModeSetting.Value modeCircle = new ModeSetting.Value(mode, "Круг").select();
     private final ModeSetting.Value modeBlocks = new ModeSetting.Value(mode, "Блоки");
 
     // circle settings
     private final NumberSetting maxRadius = new NumberSetting("Макс. радиус", 2.5f, 0.5f, 6.0f, 0.1f,  modeCircle::isSelected);
-    private final NumberSetting speed     = new NumberSetting("S pe ed",     0.05f, 0.01f, 0.2f, 0.005f);
-    private final NumberSetting lineWidth = new NumberSetting("L in eW id th",      2.5f, 0.5f, 6.0f, 0.5f,   modeCircle::isSelected);
+    private final NumberSetting speed     = new NumberSetting("????????", 0.05f, 0.01f, 0.2f, 0.005f);
+    private final NumberSetting lineWidth = new NumberSetting("??????? ?????", 2.5f, 0.5f, 6.0f, 0.5f, modeCircle::isSelected);
     private final NumberSetting rings     = new NumberSetting("Кол-во колец", 2, 1, 4, 1,                modeCircle::isSelected);
     private final BooleanSetting fill     = new BooleanSetting("Заливка",     true,                      modeCircle::isSelected);
 
     // blocks settings
     private final NumberSetting blockRadius = new NumberSetting("Радиус блоков", 3, 1, 8, 1, modeBlocks::isSelected);
-    private final NumberSetting blockWidth  = new NumberSetting("B lo ck Wi dt h",   1.5f, 0.0f, 4.0f, 0.5f, modeBlocks::isSelected);
+    private final NumberSetting blockWidth  = new NumberSetting("??????? ?????", 1.5f, 0.0f, 4.0f, 0.5f, modeBlocks::isSelected);
 
     // common
-    private final BooleanSetting selfEffect = new BooleanSetting("S el fE ff ec t",       true);
-    private final BooleanSetting others     = new BooleanSetting("O th er s",   true);
+    private final BooleanSetting selfEffect = new BooleanSetting("?? ????", true);
+    private final BooleanSetting others     = new BooleanSetting("?? ??????", true);
 
     private static final int SEGS = 64;
 
@@ -260,5 +260,12 @@ public final class JumpCircle extends Module {
         return result;
     }
 }
+
+
+
+
+
+
+
 
 

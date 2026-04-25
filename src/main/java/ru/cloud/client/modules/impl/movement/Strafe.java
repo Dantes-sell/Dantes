@@ -1,4 +1,4 @@
-﻿package ru.cloud.client.modules.impl.movement;
+package ru.cloud.client.modules.impl.movement;
 
 import com.darkmagician6.eventapi.EventTarget;
 import net.minecraft.entity.effect.StatusEffectInstance;
@@ -14,20 +14,20 @@ import ru.cloud.client.modules.api.setting.impl.ModeSetting;
 import ru.cloud.client.modules.api.setting.impl.NumberSetting;
 import ru.cloud.utility.math.Timer;
 
-@ModuleAnnotation(name = "Strafe", category = Category.MOVEMENT, description = "Settings for Strafe")
+@ModuleAnnotation(name = "Strafe", category = Category.MOVEMENT, description = "????????? ?????? Strafe")
 public final class Strafe extends Module {
 
     public static final Strafe INSTANCE = new Strafe();
     private Strafe() {}
 
-    private final ModeSetting mode = new ModeSetting("Режим");
-    private final ModeSetting.Value modeDefault = new ModeSetting.Value(mode, "Default").select();
+    private final ModeSetting mode = new ModeSetting("?????");
+    private final ModeSetting.Value modeDefault = new ModeSetting.Value(mode, "???????").select();
     private final ModeSetting.Value modeMatrix  = new ModeSetting.Value(mode, "Matrix");
     private final ModeSetting.Value modeMetaHvh = new ModeSetting.Value(mode, "MetaHVH");
 
-    private final BooleanSetting dmgBoost   = new BooleanSetting("D mg Bo os t", "D mg Bo os t", false);
-    private final NumberSetting  boostSpeed = new NumberSetting("B oo st Sp ee d", 0.7f, 0.1f, 5.0f, 0.1f, dmgBoost::isEnabled);
-    private final NumberSetting  boostDuration = new NumberSetting("B oo st Du ra ti on", 500f, 100f, 2000f, 50f, dmgBoost::isEnabled);
+    private final BooleanSetting dmgBoost   = new BooleanSetting("???? ?? ?????", "???? ?? ?????", false);
+    private final NumberSetting  boostSpeed = new NumberSetting("???????? ?????", 0.7f, 0.1f, 5.0f, 0.1f, dmgBoost::isEnabled);
+    private final NumberSetting  boostDuration = new NumberSetting("???????????? ?????", 500f, 100f, 2000f, 50f, dmgBoost::isEnabled);
 
     private final Timer boostTimer = new Timer();
     private boolean boosted = false;
@@ -110,4 +110,10 @@ public final class Strafe extends Module {
         return (mc.options.leftKey.isPressed() ? 1 : 0) - (mc.options.rightKey.isPressed() ? 1 : 0);
     }
 }
+
+
+
+
+
+
 

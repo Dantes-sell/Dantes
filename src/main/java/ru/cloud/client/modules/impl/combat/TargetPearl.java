@@ -1,4 +1,4 @@
-﻿package ru.cloud.client.modules.impl.combat;
+package ru.cloud.client.modules.impl.combat;
 
 import com.darkmagician6.eventapi.EventTarget;
 import lombok.AccessLevel;
@@ -28,7 +28,7 @@ import java.util.stream.IntStream;
 import java.util.stream.StreamSupport;
 
 @FieldDefaults(level = AccessLevel.PRIVATE)
-@ModuleAnnotation(name = "TargetPearl", category = Category.COMBAT, description = "Settings for TargetPearl")
+@ModuleAnnotation(name = "TargetPearl", category = Category.COMBAT, description = "Настройки модуля TargetPearl")
 public final class TargetPearl extends Module {
 
     public static final TargetPearl INSTANCE = new TargetPearl();
@@ -36,7 +36,7 @@ public final class TargetPearl extends Module {
 
     final Timer timer = new Timer();
 
-    final ModeSetting targetSetting = new ModeSetting("Цели", "Aura Target", "All");
+    final ModeSetting targetSetting = new ModeSetting("Цели", "Цель Aura", "Все");
 
     final NumberSetting distanceSetting = new NumberSetting("Дистанция", 10f, 5f, 15f, 1f,
             "Максимальная дистанция до точки падения");
@@ -67,7 +67,7 @@ public final class TargetPearl extends Module {
                     if (pearl.getOwner() == null) return false;
                     if (pearl.getOwner() == mc.player) return false;
                     if (Zenith.getInstance().getFriendManager().isFriend(pearl.getOwner().getName().getString())) return false;
-                    if (targetSetting.is("Aura Target") && auraTarget != null && !auraTarget.equals(pearl.getOwner())) return false;
+                    if (targetSetting.is("Цель Aura") && auraTarget != null && !auraTarget.equals(pearl.getOwner())) return false;
                     return true;
                 })
                 .min(Comparator.comparingDouble(pearl -> {
@@ -158,5 +158,8 @@ public final class TargetPearl extends Module {
         return pos;
     }
 }
+
+
+
 
 

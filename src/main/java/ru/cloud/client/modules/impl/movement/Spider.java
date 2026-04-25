@@ -1,4 +1,4 @@
-﻿package ru.cloud.client.modules.impl.movement;
+package ru.cloud.client.modules.impl.movement;
 
 import com.darkmagician6.eventapi.EventTarget;
 import lombok.AccessLevel;
@@ -35,25 +35,22 @@ import java.util.Random;
 import java.util.stream.Stream;
 
 @FieldDefaults(level = AccessLevel.PRIVATE)
-@ModuleAnnotation(name = "Spider", category = Category.MOVEMENT, description = "Settings for Spider")
+@ModuleAnnotation(name = "Spider", category = Category.MOVEMENT, description = "????????? ?????? Spider")
 public final class Spider extends Module {
 
     public static final Spider INSTANCE = new Spider();
     private Spider() {}
 
-    final ModeSetting mode = new ModeSetting("Режим", "Блоки", "СпукиТайм", "ФанТайм");
+    final ModeSetting mode = new ModeSetting("?????", "?????", "?????????", "???????");
 
     final NumberSetting delay = new NumberSetting("Задержка", 0.4f, 0.1f, 1.0f, 0.001f,
-            () -> mode.is("СпукиТайм"));
+            () -> mode.is("���������"));
 
-    final BooleanSetting holdShift = new BooleanSetting("H ol dS hi ft", "H ol dS hi ft", true,
-            () -> mode.is("СпукиТайм"));
+    final BooleanSetting holdShift = new BooleanSetting("???????? Shift", "???????? Shift", true, () -> mode.is("?????????"));
 
-    final BooleanSetting silentUse = new BooleanSetting("S il en tU se", "S il en tU se", true,
-            () -> mode.is("СпукиТайм"));
+    final BooleanSetting silentUse = new BooleanSetting("????? ?????????????", "????? ?????????????", true, () -> mode.is("?????????"));
 
-    final BooleanSetting holdSpace = new BooleanSetting("H ol dS pa ce", "H ol dS pa ce", false,
-            () -> mode.is("СпукиТайм"));
+    final BooleanSetting holdSpace = new BooleanSetting("???????? ??????", "???????? ??????", false, () -> mode.is("?????????"));
 
     final StopWatch stopWatch = new StopWatch();
     final Random random = new Random();
@@ -64,7 +61,7 @@ public final class Spider extends Module {
     long lastWallJumpMs = 0L;
     static final long WALL_JUMP_COOLDOWN_MS = 250L;
 
-    // СпукиТайм (water bucket) state
+    // ��������� (water bucket) state
     boolean canUseWater = true;
     final StopWatch waterCooldown = new StopWatch();
 
@@ -109,7 +106,7 @@ public final class Spider extends Module {
             }
         }
 
-        if (mode.is("СпукиТайм")) {
+        if (mode.is("���������")) {
             handleWaterBucket();
         }
     }
@@ -155,7 +152,7 @@ public final class Spider extends Module {
         }
     }
 
-    // ---- Water bucket (СпукиТайм) ----
+    // ---- Water bucket (?????????) ----
 
     private void handleWaterBucket() {
         if (mc.player.isTouchingWater() || mc.player.isSubmergedInWater()) {
@@ -263,4 +260,20 @@ public final class Spider extends Module {
         return -1;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

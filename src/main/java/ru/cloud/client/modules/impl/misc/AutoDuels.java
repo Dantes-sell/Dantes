@@ -1,4 +1,4 @@
-﻿package ru.cloud.client.modules.impl.misc;
+package ru.cloud.client.modules.impl.misc;
 
 import com.darkmagician6.eventapi.EventTarget;
 import net.minecraft.client.network.PlayerListEntry;
@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-@ModuleAnnotation(name = "AutoDuels", category = Category.MISC,description = "Settings for AutoDuels")
+@ModuleAnnotation(name = "AutoDuels", category = Category.MISC,description = "Настройки модуля AutoDuels")
 public final class AutoDuels extends Module {
 
     public static final AutoDuels INSTANCE = new AutoDuels();
@@ -31,10 +31,10 @@ public final class AutoDuels extends Module {
     private final ModeSetting.Value shipi = new ModeSetting.Value(mode, "Шипы");
     private final ModeSetting.Value bow = new ModeSetting.Value(mode, "Лук");
     private final ModeSetting.Value totem = new ModeSetting.Value(mode, "Тотем");
-    private final ModeSetting.Value noDebuff = new ModeSetting.Value(mode, "NoDebuff");
+    private final ModeSetting.Value noDebuff = new ModeSetting.Value(mode, "Без дебаффов");
     private final ModeSetting.Value balls = new ModeSetting.Value(mode, "Шары");
     private final ModeSetting.Value classik = new ModeSetting.Value(mode, "Классик");
-    private final ModeSetting.Value cheats = new ModeSetting.Value(mode, "Cheats");
+    private final ModeSetting.Value cheats = new ModeSetting.Value(mode, "Читы");
     private final ModeSetting.Value nezer = new ModeSetting.Value(mode, "Незер");
     {
         mode.setValue(classik);

@@ -1,4 +1,4 @@
-﻿package ru.cloud.client.modules.impl.render;
+package ru.cloud.client.modules.impl.render;
 
 import com.darkmagician6.eventapi.EventTarget;
 import com.mojang.blaze3d.platform.GlStateManager;

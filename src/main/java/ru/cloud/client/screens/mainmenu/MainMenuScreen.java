@@ -1,4 +1,4 @@
-﻿package ru.cloud.client.screens.mainmenu;
+package ru.cloud.client.screens.mainmenu;
 
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.Screen;

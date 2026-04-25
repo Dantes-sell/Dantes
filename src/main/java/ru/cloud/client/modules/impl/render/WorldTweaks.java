@@ -1,4 +1,4 @@
-﻿package ru.cloud.client.modules.impl.render;
+package ru.cloud.client.modules.impl.render;
 
 import com.darkmagician6.eventapi.EventTarget;
 import com.mojang.blaze3d.systems.RenderSystem;
@@ -29,7 +29,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
-@ModuleAnnotation(name = "WorldTweaks", description = "Settings for WorldTweaks", category = Category.RENDER)
+@ModuleAnnotation(name = "WorldTweaks", description = "Настройки модуля WorldTweaks", category = Category.RENDER)
 public final class WorldTweaks extends Module {
 
     // -- ???????????? ????????? ------------------------------------------------

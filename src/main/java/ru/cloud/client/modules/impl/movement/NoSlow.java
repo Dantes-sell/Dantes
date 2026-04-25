@@ -1,4 +1,4 @@
-﻿package ru.cloud.client.modules.impl.movement;
+package ru.cloud.client.modules.impl.movement;
 
 import com.darkmagician6.eventapi.EventTarget;
 import net.minecraft.item.CrossbowItem;
@@ -16,12 +16,12 @@ import ru.cloud.client.modules.api.setting.impl.ModeSetting;
 import ru.cloud.client.modules.api.setting.impl.NumberSetting;
 import ru.cloud.utility.game.player.MovingUtil;
 
-@ModuleAnnotation(name = "NoSlow", category = Category.MOVEMENT, description = "Settings for NoSlow")
+@ModuleAnnotation(name = "NoSlow", category = Category.MOVEMENT, description = "????????? ?????? NoSlow")
 public final class NoSlow extends Module {
     public static final NoSlow INSTANCE = new NoSlow();
 
-    private final ModeSetting mode = new ModeSetting("Мод", "Vanilla", "Matrix", "Grim", "FunTime", "ReallyWorld", "SpookyTime");
-    private final NumberSetting vanillaSpeed = new NumberSetting("Скорость", 0.6F, 0.1F, 1F, 0.05F, () -> mode.is("Vanilla"));
+    private final ModeSetting mode = new ModeSetting("?????", "Vanilla", "Matrix", "Grim", "FunTime", "ReallyWorld", "SpookyTime");
+    private final NumberSetting vanillaSpeed = new NumberSetting("????????", 0.6F, 0.1F, 1F, 0.05F, () -> mode.is("Vanilla"));
     private final BooleanSetting onlyGround = new BooleanSetting("Только на земле", false, () -> !mode.is("FunTime"));
 
     public static int ticks = 0;
@@ -176,4 +176,8 @@ public final class NoSlow extends Module {
         mc.player.networkHandler.sendPacket(new UpdateSelectedSlotC2SPacket(currentSlot));
     }
 }
+
+
+
+
 

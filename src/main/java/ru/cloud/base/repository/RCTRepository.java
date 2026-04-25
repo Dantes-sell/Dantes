@@ -1,4 +1,4 @@
-﻿package ru.cloud.base.repository;
+package ru.cloud.base.repository;
 
 import com.darkmagician6.eventapi.EventManager;
 import com.darkmagician6.eventapi.EventTarget;

@@ -1,4 +1,4 @@
-﻿package ru.cloud.client.modules.impl.misc;
+package ru.cloud.client.modules.impl.misc;
 
 import com.darkmagician6.eventapi.EventTarget;
 import net.minecraft.block.BlockState;
@@ -44,62 +44,62 @@ import ru.cloud.utility.render.level.Render3DUtil;
 import java.util.*;
 
 
-@ModuleAnnotation(name = "ServerHelper", category = Category.MISC, description = "Server helper utilities")
+@ModuleAnnotation(name = "ServerHelper", category = Category.MISC, description = "???????? ??? ????????? ???????")
 public final class ServerHelper extends Module {
 
     public static final ServerHelper INSTANCE = new ServerHelper();
 
     // --- Settings ---------------------------------------------------------------
-    private final ModeSetting mode = new ModeSetting("Server Type", "ReallyWorld", "HolyWorld", "FunTime");
+    private final ModeSetting mode = new ModeSetting("??? ???????", "ReallyWorld", "HolyWorld", "FunTime");
 
-    private final BooleanSetting autoLootSetting = new BooleanSetting("Auto Loot",
-            "Loots items from nearby containers automatically", true,
+    private final BooleanSetting autoLootSetting = new BooleanSetting("???????",
+            "????????????? ????????? ??? ?? ????????? ???????????", true,
             () -> mode.is("HolyWorld"));
 
-    private final BooleanSetting autoShulkerSetting = new BooleanSetting("Auto Shulker",
-            "Automatically uses shulker boxes from hotbar", true,
+    private final BooleanSetting autoShulkerSetting = new BooleanSetting("????-??????",
+            "????????????? ?????????? ??????? ?? ???????", true,
             () -> mode.is("HolyWorld"));
 
-    private final BooleanSetting autoRepairSetting = new BooleanSetting("Auto Repair",
-            "Repairs armor by throwing XP when durability is low", true,
+    private final BooleanSetting autoRepairSetting = new BooleanSetting("????-???????",
+            "????? ????? ?????? ??? ?????? ?????????", true,
             () -> mode.is("HolyWorld"));
 
-    private final BooleanSetting consumablesSetting = new BooleanSetting("Consumables",
-            "Handles consumable timers and helper actions", true,
+    private final BooleanSetting consumablesSetting = new BooleanSetting("??????????",
+            "?????????? ??????? ??????????? ? ??????????????? ????????", true,
             () -> mode.is("FunTime"));
 
-    private final BooleanSetting autoPointSetting = new BooleanSetting("Auto Point",
-            "Shows timed event points and status on HUD", true,
+    private final BooleanSetting autoPointSetting = new BooleanSetting("????-?????",
+            "?????????? ????? ??????? ? ?? ?????? ?? HUD", true,
             () -> mode.is("FunTime"));
 
     // --- Key bindings ------------------------------------------------------------
-    private final KeySetting keyAntiFlight = new KeySetting("Anti Flight", -1, () -> mode.is("ReallyWorld"));
-    private final KeySetting keyExpScroll = new KeySetting("EXP Scroll", -1, () -> mode.is("ReallyWorld"));
-    private final KeySetting keyDTrap = new KeySetting("D-Trap", -1, () -> mode.is("HolyWorld"));
-    private final KeySetting keyTrapHoly = new KeySetting("Holy Trap", -1, () -> mode.is("HolyWorld"));
-    private final KeySetting keyStan = new KeySetting("Stan", -1, () -> mode.is("HolyWorld"));
-    private final KeySetting keyDItem = new KeySetting("D-Item", -1, () -> mode.is("HolyWorld"));
-    private final KeySetting keySnow = new KeySetting("Snowball Freeze", -1, () -> mode.is("HolyWorld") || mode.is("FunTime"));
-    private final KeySetting keyBojAura = new KeySetting("God Aura", -1, () -> mode.is("FunTime"));
-    private final KeySetting keyTrap = new KeySetting("Trap", -1, () -> mode.is("FunTime"));
-    private final KeySetting keyPlast = new KeySetting("Plast", -1, () -> mode.is("FunTime"));
-    private final KeySetting keySugar = new KeySetting("Sugar Dust", -1, () -> mode.is("FunTime"));
-    private final KeySetting keyFireSwirl = new KeySetting("Fire Swirl", -1, () -> mode.is("FunTime"));
-    private final KeySetting keyDisorientation = new KeySetting("Disorientation", -1, () -> mode.is("FunTime"));
-    private final KeySetting keyTikva = new KeySetting("Pumpkin EXP", -1, () -> mode.is("HolyWorld"));
-    private final KeySetting keyExp = new KeySetting("EXP Bottle", -1, () -> mode.is("HolyWorld"));
-    private final KeySetting keyShulker1 = new KeySetting("Shulker 1", -1, () -> mode.is("HolyWorld"));
-    private final KeySetting keyShulker2 = new KeySetting("Shulker 2", -1, () -> mode.is("HolyWorld"));
-    private final KeySetting keyShulker3 = new KeySetting("Shulker 3", -1, () -> mode.is("HolyWorld"));
-    private final KeySetting keyShulker4 = new KeySetting("Shulker 4", -1, () -> mode.is("HolyWorld"));
-    private final KeySetting keyOtriga = new KeySetting("Otriga", -1, () -> mode.is("FunTime"));
-    private final KeySetting keySerka = new KeySetting("Serka", -1, () -> mode.is("FunTime"));
-    private final KeySetting keyVspihka = new KeySetting("Vspihka", -1, () -> mode.is("FunTime"));
-    private final KeySetting keyMochaFlesha = new KeySetting("Mocha Flesh", -1, () -> mode.is("FunTime"));
-    private final KeySetting keyPobedilka = new KeySetting("Pobedilka", -1, () -> mode.is("FunTime"));
-    private final KeySetting keyAgent = new KeySetting("Agent", -1, () -> mode.is("FunTime"));
-    private final KeySetting keyMedik = new KeySetting("Medik", -1, () -> mode.is("FunTime"));
-    private final KeySetting keyKiller = new KeySetting("Killer", -1, () -> mode.is("FunTime"));
+    private final KeySetting keyAntiFlight = new KeySetting("????-?????", -1, () -> mode.is("ReallyWorld"));
+    private final KeySetting keyExpScroll = new KeySetting("?????? ?????", -1, () -> mode.is("ReallyWorld"));
+    private final KeySetting keyDTrap = new KeySetting("?-??????", -1, () -> mode.is("HolyWorld"));
+    private final KeySetting keyTrapHoly = new KeySetting("????-??????", -1, () -> mode.is("HolyWorld"));
+    private final KeySetting keyStan = new KeySetting("????", -1, () -> mode.is("HolyWorld"));
+    private final KeySetting keyDItem = new KeySetting("?-???????", -1, () -> mode.is("HolyWorld"));
+    private final KeySetting keySnow = new KeySetting("????????? ???????", -1, () -> mode.is("HolyWorld") || mode.is("FunTime"));
+    private final KeySetting keyBojAura = new KeySetting("???-????", -1, () -> mode.is("FunTime"));
+    private final KeySetting keyTrap = new KeySetting("??????", -1, () -> mode.is("FunTime"));
+    private final KeySetting keyPlast = new KeySetting("?????", -1, () -> mode.is("FunTime"));
+    private final KeySetting keySugar = new KeySetting("???????? ????", -1, () -> mode.is("FunTime"));
+    private final KeySetting keyFireSwirl = new KeySetting("???????? ?????", -1, () -> mode.is("FunTime"));
+    private final KeySetting keyDisorientation = new KeySetting("?????????????", -1, () -> mode.is("FunTime"));
+    private final KeySetting keyTikva = new KeySetting("????????? ????", -1, () -> mode.is("HolyWorld"));
+    private final KeySetting keyExp = new KeySetting("??????? ?????", -1, () -> mode.is("HolyWorld"));
+    private final KeySetting keyShulker1 = new KeySetting("?????? 1", -1, () -> mode.is("HolyWorld"));
+    private final KeySetting keyShulker2 = new KeySetting("?????? 2", -1, () -> mode.is("HolyWorld"));
+    private final KeySetting keyShulker3 = new KeySetting("?????? 3", -1, () -> mode.is("HolyWorld"));
+    private final KeySetting keyShulker4 = new KeySetting("?????? 4", -1, () -> mode.is("HolyWorld"));
+    private final KeySetting keyOtriga = new KeySetting("??????", -1, () -> mode.is("FunTime"));
+    private final KeySetting keySerka = new KeySetting("?????", -1, () -> mode.is("FunTime"));
+    private final KeySetting keyVspihka = new KeySetting("???????", -1, () -> mode.is("FunTime"));
+    private final KeySetting keyMochaFlesha = new KeySetting("???? ?????", -1, () -> mode.is("FunTime"));
+    private final KeySetting keyPobedilka = new KeySetting("?????????", -1, () -> mode.is("FunTime"));
+    private final KeySetting keyAgent = new KeySetting("?????", -1, () -> mode.is("FunTime"));
+    private final KeySetting keyMedik = new KeySetting("?????", -1, () -> mode.is("FunTime"));
+    private final KeySetting keyKiller = new KeySetting("??????", -1, () -> mode.is("FunTime"));
 
 
     // --- Inner types -------------------------------------------------------------
@@ -192,29 +192,29 @@ public final class ServerHelper extends Module {
 
     private void initItemInfos() {
         itemInfos.clear();
-        itemInfos.add(new ItemInfo("Disorientation", Items.ENDER_EYE, "Disorientation", keyDisorientation, 10));
+        itemInfos.add(new ItemInfo("?????????????", Items.ENDER_EYE, "?????????????", keyDisorientation, 10));
         itemInfos.add(new ItemInfo("Sugar", Items.SUGAR, "Sugar", keySugar, 10));
-        itemInfos.add(new ItemInfo("God Aura", Items.PHANTOM_MEMBRANE, "God Aura", keyBojAura, 0));
-        itemInfos.add(new ItemInfo("Snowball Freeze", Items.SNOWBALL, "Snowball Freeze", keySnow, 0));
-        itemInfos.add(new ItemInfo("Plast", Items.DRIED_KELP, "Plast", keyPlast, 0));
-        itemInfos.add(new ItemInfo("Trap", Items.NETHERITE_SCRAP, "Trap", keyTrap, 0));
-        itemInfos.add(new ItemInfo("Fire Swirl", Items.FIRE_CHARGE, "Fire Swirl", keyFireSwirl, 10));
-        itemInfos.add(new ItemInfo("Otriga", Items.SPLASH_POTION, "Otriga", keyOtriga, 0));
-        itemInfos.add(new ItemInfo("Serka", Items.SPLASH_POTION, "Serka", keySerka, 0));
-        itemInfos.add(new ItemInfo("Vspihka", Items.SPLASH_POTION, "Vspihka", keyVspihka, 0));
-        itemInfos.add(new ItemInfo("Mocha Flesh", Items.SPLASH_POTION, "Mocha Flesh", keyMochaFlesha, 0));
-        itemInfos.add(new ItemInfo("Pobedilka", Items.SPLASH_POTION, "Pobedilka", keyPobedilka, 0));
-        itemInfos.add(new ItemInfo("Agent", Items.SPLASH_POTION, "Agent", keyAgent, 0));
-        itemInfos.add(new ItemInfo("Medik", Items.SPLASH_POTION, "Medik", keyMedik, 0));
-        itemInfos.add(new ItemInfo("Killer", Items.SPLASH_POTION, "Killer", keyKiller, 0));
-        itemInfos.add(new ItemInfo("Anti Flight", Items.FIREWORK_STAR, "Anti Flight", keyAntiFlight, 0));
-        itemInfos.add(new ItemInfo("EXP Scroll", Items.FLOWER_BANNER_PATTERN, "EXP Scroll", keyExpScroll, 0));
-        itemInfos.add(new ItemInfo("D-Trap", Items.PRISMARINE_SHARD, "D-Trap", keyDTrap, 5));
-        itemInfos.add(new ItemInfo("Holy Trap", Items.POPPED_CHORUS_FRUIT, "Holy Trap", keyTrapHoly, 0));
-        itemInfos.add(new ItemInfo("Stan", Items.NETHER_STAR, "Stan", keyStan, 30));
-        itemInfos.add(new ItemInfo("D-Item", Items.FIRE_CHARGE, "D-Item", keyDItem, 5));
-        itemInfos.add(new ItemInfo("Pumpkin EXP", Items.JACK_O_LANTERN, "Pumpkin EXP", keyTikva, 0));
-        itemInfos.add(new ItemInfo("EXP Bottle", Items.EXPERIENCE_BOTTLE, "EXP Bottle", keyExp, 0));
+        itemInfos.add(new ItemInfo("???-????", Items.PHANTOM_MEMBRANE, "???-????", keyBojAura, 0));
+        itemInfos.add(new ItemInfo("????????? ???????", Items.SNOWBALL, "????????? ???????", keySnow, 0));
+        itemInfos.add(new ItemInfo("?????", Items.DRIED_KELP, "?????", keyPlast, 0));
+        itemInfos.add(new ItemInfo("??????", Items.NETHERITE_SCRAP, "??????", keyTrap, 0));
+        itemInfos.add(new ItemInfo("???????? ?????", Items.FIRE_CHARGE, "???????? ?????", keyFireSwirl, 10));
+        itemInfos.add(new ItemInfo("??????", Items.SPLASH_POTION, "??????", keyOtriga, 0));
+        itemInfos.add(new ItemInfo("?????", Items.SPLASH_POTION, "?????", keySerka, 0));
+        itemInfos.add(new ItemInfo("???????", Items.SPLASH_POTION, "???????", keyVspihka, 0));
+        itemInfos.add(new ItemInfo("???? ?????", Items.SPLASH_POTION, "???? ?????", keyMochaFlesha, 0));
+        itemInfos.add(new ItemInfo("?????????", Items.SPLASH_POTION, "?????????", keyPobedilka, 0));
+        itemInfos.add(new ItemInfo("?????", Items.SPLASH_POTION, "?????", keyAgent, 0));
+        itemInfos.add(new ItemInfo("?????", Items.SPLASH_POTION, "?????", keyMedik, 0));
+        itemInfos.add(new ItemInfo("??????", Items.SPLASH_POTION, "??????", keyKiller, 0));
+        itemInfos.add(new ItemInfo("????-?????", Items.FIREWORK_STAR, "????-?????", keyAntiFlight, 0));
+        itemInfos.add(new ItemInfo("?????? ?????", Items.FLOWER_BANNER_PATTERN, "?????? ?????", keyExpScroll, 0));
+        itemInfos.add(new ItemInfo("?-??????", Items.PRISMARINE_SHARD, "?-??????", keyDTrap, 5));
+        itemInfos.add(new ItemInfo("????-??????", Items.POPPED_CHORUS_FRUIT, "????-??????", keyTrapHoly, 0));
+        itemInfos.add(new ItemInfo("????", Items.NETHER_STAR, "????", keyStan, 30));
+        itemInfos.add(new ItemInfo("?-???????", Items.FIRE_CHARGE, "?-???????", keyDItem, 5));
+        itemInfos.add(new ItemInfo("????????? ????", Items.JACK_O_LANTERN, "????????? ????", keyTikva, 0));
+        itemInfos.add(new ItemInfo("??????? ?????", Items.EXPERIENCE_BOTTLE, "??????? ?????", keyExp, 0));
         itemInfos.add(new ItemInfo("Shulker I", Items.PINK_SHULKER_BOX, "Shulker I", keyShulker1, 0));
         itemInfos.add(new ItemInfo("Shulker II", Items.BLUE_SHULKER_BOX, "Shulker II", keyShulker2, 0));
         itemInfos.add(new ItemInfo("Shulker III", Items.RED_SHULKER_BOX, "Shulker III", keyShulker3, 0));
@@ -263,7 +263,7 @@ public final class ServerHelper extends Module {
         }
 
         if (e.getPacket() instanceof OpenScreenS2CPacket openScreen
-                && openScreen.getName().getString().contains("Р СЋРєР·Р°Рє")
+                && openScreen.getName().getString().contains("������")
                 && !stacks.isEmpty()) {
             shulkerScriptPending = true;
         }
@@ -281,37 +281,27 @@ public final class ServerHelper extends Module {
             String name = StringUtils.substringBetween(message, "||| [", "] ");
             if (name != null) {
                 String position = StringUtils.substringBetween(contentString, "value='/gps ", "'");
-                String lvl = StringUtils.substringBetween(message, "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ: ", "\\n пїЅ");
-                String owner = StringUtils.substringBetween(message, "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ: ", "\\n пїЅ");
+                String lvl = extractField(message, "???????:");
+                String owner = extractField(message, "????????:");
                 if (position != null) {
                     String[] pose = position.split(" ");
                     Vec3d center = BlockPos.ofFloored(
                             Integer.parseInt(pose[0]), Integer.parseInt(pose[1]), Integer.parseInt(pose[2])
                     ).toCenterPos();
-                    if ("пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ".equals(name)) {
-                        addEvent(name, lvl, owner, center, 300, 0);
-                    } else if ("Р’СѓР»РєР°РЅ".equals(name)) {
-                        addEvent(name, lvl, owner, center, 300, 120);
-                    } else if ("пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ".equals(name)
-                            || "пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ".equals(name)
-                            || "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ".equals(name)) {
-                        addEvent(name, lvl, owner, center, 360, 0);
-                    } else if ("пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ".equals(name)) {
-                        addEvent(name, lvl, owner, center, 60, 180);
+                    int duration = 300;
+                    int delay = 0;
+                    if ("??????".equals(name)) {
+                        delay = 120;
                     }
-                } else {
-                    switch (name) {
-                        case "пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ" ->
-                                addEvent(name, lvl, owner, BlockPos.ofFloored(-155, 64, 205).toCenterPos(), 300, 0);
-                        case "РђРґСЃРєР°СЏ СЂРµР·РЅСЏ" ->
-                                addEvent(name, lvl, owner, BlockPos.ofFloored(48, 87, 73).toCenterPos(), 180, 120);
-                    }
+                    addEvent(name, lvl, owner, center, duration, delay);
+                } else if ("?????? ?????".equals(name)) {
+                    addEvent(name, lvl, owner, BlockPos.ofFloored(48, 87, 73).toCenterPos(), 180, 120);
                 }
             }
         }
 
-        if (message.contains("? пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ")) {
-            String sub = StringUtils.substringBetween(message, "пїЅпїЅпїЅпїЅпїЅ ", " пїЅпїЅпїЅпїЅпїЅпїЅ");
+        if (message.toLowerCase(Locale.ROOT).contains("?????")) {
+            String sub = extractNumber(message);
             if (sub != null && !sub.isEmpty()) {
                 try {
                     int duration = Integer.parseInt(sub.trim()) * 20;
@@ -323,11 +313,24 @@ public final class ServerHelper extends Module {
         }
     }
 
+    private String extractField(String message, String label) {
+        int index = message.indexOf(label);
+        if (index == -1) {
+            return null;
+        }
+        String tail = message.substring(index + label.length()).trim();
+        int newline = tail.indexOf("\n");
+        return newline >= 0 ? tail.substring(0, newline).trim() : tail;
+    }
+    private String extractNumber(String message) {
+        var matcher = java.util.regex.Pattern.compile("(\\d+)").matcher(message);
+        return matcher.find() ? matcher.group(1) : null;
+    }
     // --- SetScreen handler -------------------------------------------------------
     @EventTarget
     public void onSetScreen(EventSetScreen e) {
         if (e.getScreen() instanceof GenericContainerScreen screen
-                && screen.getTitle().getString().contains("Р СЋРєР·Р°Рє")
+                && screen.getTitle().getString().contains("������")
                 && shulkerScriptPending) {
             e.setScreen(null);
         }
@@ -338,7 +341,7 @@ public final class ServerHelper extends Module {
     public void onUpdate(EventUpdate e) {
         if (PlayerIntersectionUtil.nullCheck()) return;
 
-        // РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р… РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р… РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
         long now = System.currentTimeMillis();
         serverEvents.removeIf(ev -> now - ev.createdAt > (ev.duration + ev.delay) * 1000L);
 
@@ -366,7 +369,7 @@ public final class ServerHelper extends Module {
             }
         }
 
-        // РїС—Р…РїС—Р…РїС—Р…РїС—Р…-РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р… (HolyWorld): РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р… РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р… РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р… РїС—Р… РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…
+        // пїЅпїЅпїЅпїЅ-пїЅпїЅпїЅпїЅпїЅпїЅ (HolyWorld): пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
         if (autoShulkerSetting.isEnabled() && autoShulkerSetting.isVisible()
                 && shulkerScriptPending
                 && shulkerWatch.finished(500)
@@ -384,7 +387,7 @@ public final class ServerHelper extends Module {
             });
         }
 
-        // РїС—Р…РїС—Р…РїС—Р…РїС—Р…-РїС—Р…РїС—Р…РїС—Р… РїС—Р… РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р… (HolyWorld): РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р… РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р… РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р… РїС—Р… РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р… РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…
+        // пїЅпїЅпїЅпїЅ-пїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅ (HolyWorld): пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
         if (autoLootSetting.isEnabled() && autoLootSetting.isVisible()
                 && itemsWatch.finished(200)) {
             itemsWatch.reset();
@@ -402,7 +405,7 @@ public final class ServerHelper extends Module {
             });
         }
 
-        // РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р… РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р… РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р… РїС—Р…РїС—Р…РїС—Р… РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р… РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         for (ItemInfo info : itemInfos) {
             if (info.key.getKeyCode() == -1 || !info.key.isVisible()) continue;
             boolean pressed = PlayerIntersectionUtil.isKey(info.key);
@@ -435,7 +438,7 @@ public final class ServerHelper extends Module {
         long now = System.currentTimeMillis();
         for (ServerEvent ev : serverEvents) {
             long elapsed = (now - ev.createdAt) / 1000L;
-            if (elapsed < ev.delay) continue; // РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р… РїС—Р…РїС—Р…РїС—Р… РїС—Р…РїС—Р… РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…
+            if (elapsed < ev.delay) continue; // пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             long remaining = ev.duration + ev.delay - elapsed;
             if (remaining <= 0) continue;
 
@@ -458,7 +461,7 @@ public final class ServerHelper extends Module {
         float screenH = mc.getWindow().getScaledHeight();
         long now = System.currentTimeMillis();
 
-        // РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р… РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р… (FunTime): РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р… РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р… РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…
+        // пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ (FunTime): пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         if (consumablesSetting.isEnabled() && consumablesSetting.isVisible()) {
             float y = screenH / 2f - 40;
             float x = screenW - 120;
@@ -467,7 +470,7 @@ public final class ServerHelper extends Module {
                 float cd = mc.player.getItemCooldownManager().getCooldownProgress(info.item.getDefaultStack(), 0f);
                 if (cd <= 0) continue;
                 int seconds = Math.round(cd);
-                String text = info.displayName + ": " + seconds + "РЎРѓ";
+                String text = info.displayName + ": " + seconds + "с";
                 float w = Fonts.MEDIUM.getWidth(text, 7f) + 8;
                 e.getContext().drawRoundedRect(x - w, y, w, 13,
                         BorderRadius.all(4),
@@ -478,7 +481,7 @@ public final class ServerHelper extends Module {
             }
         }
 
-        // РїС—Р…РїС—Р…РїС—Р…РїС—Р… РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р… (FunTime): РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р… РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р… РїС—Р…РїС—Р… РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…
+        // пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ (FunTime): пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         if (autoPointSetting.isEnabled() && autoPointSetting.isVisible()) {
             float y = 10;
             for (ServerEvent ev : serverEvents) {
@@ -487,10 +490,10 @@ public final class ServerHelper extends Module {
                 if (remaining <= 0) continue;
 
                 boolean active = elapsed >= ev.delay;
-                String status = active ? "ACTIVE" : "IN " + (ev.delay - elapsed) + "s";
+                String status = active ? "???????" : "????? " + (ev.delay - elapsed) + "?";
                 String line1 = ev.name + (ev.lvl != null ? " [" + ev.lvl + "]" : "");
-                String line2 = status + " | " + remaining + "s";
-                String line3 = ev.owner != null ? "Owner: " + ev.owner : null;
+                String line2 = status + " | " + remaining + "?";
+                String line3 = ev.owner != null ? "????????: " + ev.owner : null;
 
                 float maxW = Math.max(Fonts.SEMIBOLD.getWidth(line1, 7.5f), Fonts.MEDIUM.getWidth(line2, 7f));
                 if (line3 != null) maxW = Math.max(maxW, Fonts.MEDIUM.getWidth(line3, 7f));
@@ -510,13 +513,13 @@ public final class ServerHelper extends Module {
                             new ColorRGBA(180, 180, 180, 255));
                 }
 
-                // РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р… РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р… РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р… РїС—Р…РїС—Р… РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…
+                // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
                 if (ProjectionUtil.canSee(ev.center)) {
                     Vec3d screen = ProjectionUtil.worldSpaceToScreenSpace(ev.center.add(0, 1, 0));
                     if (screen.z > 0 && screen.z < 1) {
                         float sx = (float) screen.x;
                         float sy = (float) screen.y;
-                        String dist = (int) mc.player.getPos().distanceTo(ev.center) + "Р С";
+                        String dist = (int) mc.player.getPos().distanceTo(ev.center) + "м";
                         float dw = Fonts.MEDIUM.getWidth(dist, 6.5f) + 6;
                         e.getContext().drawRoundedRect(sx - dw / 2, sy - 8, dw, 12,
                                 BorderRadius.all(3),
@@ -531,4 +534,6 @@ public final class ServerHelper extends Module {
         }
     }
 }
+
+
 

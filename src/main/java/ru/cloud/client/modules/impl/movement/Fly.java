@@ -1,4 +1,4 @@
-﻿package ru.cloud.client.modules.impl.movement;
+package ru.cloud.client.modules.impl.movement;
 
 import com.darkmagician6.eventapi.EventTarget;
 import net.minecraft.util.math.Vec3d;
@@ -9,18 +9,18 @@ import ru.cloud.client.modules.api.ModuleAnnotation;
 import ru.cloud.client.modules.api.setting.impl.ModeSetting;
 import ru.cloud.client.modules.api.setting.impl.NumberSetting;
 
-@ModuleAnnotation(name = "Fly", category = Category.MOVEMENT, description = "Settings for Fly")
+@ModuleAnnotation(name = "Fly", category = Category.MOVEMENT, description = "????????? ?????? Fly")
 public final class Fly extends Module {
 
     public static final Fly INSTANCE = new Fly();
     private Fly() {}
 
-    private final ModeSetting mode = new ModeSetting("Режим");
-    private final ModeSetting.Value vanilla  = new ModeSetting.Value(mode, "Vanilla").select();
-    private final ModeSetting.Value velocity = new ModeSetting.Value(mode, "Velocity");
-    private final ModeSetting.Value glide    = new ModeSetting.Value(mode, "Glide");
+    private final ModeSetting mode = new ModeSetting("?????");
+    private final ModeSetting.Value vanilla  = new ModeSetting.Value(mode, "???????").select();
+    private final ModeSetting.Value velocity = new ModeSetting.Value(mode, "????????");
+    private final ModeSetting.Value glide    = new ModeSetting.Value(mode, "????????????");
 
-    private final NumberSetting speed = new NumberSetting("S pe ed", 1.0f, 0.1f, 50f, 0.1f);
+    private final NumberSetting speed = new NumberSetting("????????", 1.0f, 0.1f, 50f, 0.1f);
 
     @Override
     public void onEnable() {
@@ -88,5 +88,11 @@ public final class Fly extends Module {
         return a + (b - a) * t;
     }
 }
+
+
+
+
+
+
 
 

@@ -73,5 +73,20 @@ public class BindCommand extends CommandAbstract {
             }
             return SINGLE_SUCCESS;
         }));
+
+        // .bind reset
+        builder.then(literal("reset").executes(context -> {
+            int resetCount = 0;
+            for (Module module : Zenith.getInstance().getModuleManager().getModules()) {
+                if (module.getKeyCode() != -1) {
+                    module.setKeyCode(-1);
+                    resetCount++;
+                }
+            }
+
+            MessageUtil.displayMessage(MessageUtil.LogLevel.INFO,
+                    "§7Сброшено биндов: §f" + resetCount);
+            return SINGLE_SUCCESS;
+        }));
     }
 }
