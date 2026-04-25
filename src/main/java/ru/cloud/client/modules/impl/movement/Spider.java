@@ -1,4 +1,4 @@
-package ru.cloud.client.modules.impl.movement;
+﻿package ru.cloud.client.modules.impl.movement;
 
 import com.darkmagician6.eventapi.EventTarget;
 import lombok.AccessLevel;
@@ -35,7 +35,7 @@ import java.util.Random;
 import java.util.stream.Stream;
 
 @FieldDefaults(level = AccessLevel.PRIVATE)
-@ModuleAnnotation(name = "Spider", category = Category.MOVEMENT, description = "Текст")
+@ModuleAnnotation(name = "Spider", category = Category.MOVEMENT, description = "Settings for Spider")
 public final class Spider extends Module {
 
     public static final Spider INSTANCE = new Spider();
@@ -46,13 +46,13 @@ public final class Spider extends Module {
     final NumberSetting delay = new NumberSetting("Задержка", 0.4f, 0.1f, 1.0f, 0.001f,
             () -> mode.is("СпукиТайм"));
 
-    final BooleanSetting holdShift = new BooleanSetting("Текст", "Текст", true,
+    final BooleanSetting holdShift = new BooleanSetting("H ol dS hi ft", "H ol dS hi ft", true,
             () -> mode.is("СпукиТайм"));
 
-    final BooleanSetting silentUse = new BooleanSetting("Текст", "Текст", true,
+    final BooleanSetting silentUse = new BooleanSetting("S il en tU se", "S il en tU se", true,
             () -> mode.is("СпукиТайм"));
 
-    final BooleanSetting holdSpace = new BooleanSetting("Текст", "Текст", false,
+    final BooleanSetting holdSpace = new BooleanSetting("H ol dS pa ce", "H ol dS pa ce", false,
             () -> mode.is("СпукиТайм"));
 
     final StopWatch stopWatch = new StopWatch();
@@ -263,3 +263,4 @@ public final class Spider extends Module {
         return -1;
     }
 }
+

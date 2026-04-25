@@ -1,4 +1,4 @@
-package ru.cloud.client.screens.altmanager;
+﻿package ru.cloud.client.screens.altmanager;
 
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.Screen;
@@ -283,7 +283,7 @@ public class AltManagerScreen extends Screen implements IMinecraft {
 
         // -- title -------------------------------------------------------------
         Font bold = Fonts.BOLD.getFont(10);
-        String title = "Текст";
+        String title = "Удалить все аккаунты?";
         float ta = (now % 4000L) / 1500f;
         ctx.drawText(bold, title, bx + (bw - bold.width(title)) / 2f, by + icR*2 + 26,
                 new ColorRGBA(animGrad(ACCENT, ACCENT_LITE, ta)));
@@ -312,8 +312,8 @@ public class AltManagerScreen extends Screen implements IMinecraft {
                 blend(new ColorRGBA(28, 18, 55, (int)(200*anim)), yesAccent.withAlpha((int)(200*anim)), yesHover * 0.65f));
         DrawUtil.drawRoundedBorder(ctx.getMatrices(), yesX, btnY, btnW, btnH, 0.7f, BorderRadius.all(7),
                 yesAccent.withAlpha((int)(yesHover * 180 * anim)));
-        ctx.drawText(med, "Текст",
-                yesX + btnW/2f - med.width("Текст")/2f, btnY + btnH/2f - med.height()/2f,
+        ctx.drawText(med, "Удалить всё",
+                yesX + btnW/2f - med.width("Удалить всё")/2f, btnY + btnH/2f - med.height()/2f,
                 blend(TEXT_DIM, TEXT_MAIN, yesHover).withAlpha((int)(255*anim)));
 
         
@@ -503,4 +503,5 @@ public class AltManagerScreen extends Screen implements IMinecraft {
         return name;
     }
 }
+
 

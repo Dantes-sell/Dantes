@@ -1,4 +1,4 @@
-package ru.cloud.client.modules.impl.render;
+﻿package ru.cloud.client.modules.impl.render;
 
 import com.darkmagician6.eventapi.EventTarget;
 import com.mojang.blaze3d.platform.GlStateManager;
@@ -27,17 +27,17 @@ public final class Trails extends Module {
 
     // visual mode
     private final ModeSetting mode          = new ModeSetting("Режим");
-    private final ModeSetting.Value modeLine   = new ModeSetting.Value(mode, "Текст").select();
-    private final ModeSetting.Value modeRibbon = new ModeSetting.Value(mode, "Текст");
+    private final ModeSetting.Value modeLine   = new ModeSetting.Value(mode, "M od eL in e").select();
+    private final ModeSetting.Value modeRibbon = new ModeSetting.Value(mode, "M od eR ib bo n");
 
     // color mode
     private final ModeSetting colorMode         = new ModeSetting("Цвет");
-    private final ModeSetting.Value colorGrad    = new ModeSetting.Value(colorMode, "Текст").select();
+    private final ModeSetting.Value colorGrad    = new ModeSetting.Value(colorMode, "C ol or Gr ad").select();
     private final ModeSetting.Value colorRainbow = new ModeSetting.Value(colorMode, "Радуга");
 
     private final NumberSetting trailLength = new NumberSetting("Длина следа",   80, 10, 300, 5);
-    private final NumberSetting lineWidth   = new NumberSetting("Текст", 3.0f, 0.5f, 10.0f, 0.5f, modeLine::isSelected);
-    private final NumberSetting minDist     = new NumberSetting("Текст", 0.04f, 0.01f, 0.3f, 0.01f);
+    private final NumberSetting lineWidth   = new NumberSetting("L in eW id th", 3.0f, 0.5f, 10.0f, 0.5f, modeLine::isSelected);
+    private final NumberSetting minDist     = new NumberSetting("M in Di st", 0.04f, 0.01f, 0.3f, 0.01f);
 
     private final Deque<Vec3d> points = new ArrayDeque<>();
     private Vec3d lastPos = null;
@@ -186,4 +186,5 @@ public final class Trails extends Module {
         }
     }
 }
+
 

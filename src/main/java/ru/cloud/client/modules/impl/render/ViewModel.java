@@ -1,4 +1,4 @@
-package ru.cloud.client.modules.impl.render;
+﻿package ru.cloud.client.modules.impl.render;
 
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.Arm;
@@ -7,17 +7,17 @@ import ru.cloud.client.modules.api.Module;
 import ru.cloud.client.modules.api.ModuleAnnotation;
 import ru.cloud.client.modules.api.setting.impl.NumberSetting;
 
-@ModuleAnnotation(name = "ViewModel", category = Category.RENDER, description = "Текст")
+@ModuleAnnotation(name = "ViewModel", category = Category.RENDER, description = "Settings for ViewModel")
 public final class ViewModel extends Module {
     public static final ViewModel INSTANCE = new ViewModel();
 
     private ViewModel() {
     }
 
-    public final NumberSetting leftX = new NumberSetting("Текст", 0.0f, -1.0f, 1.0f, 0.1f);
-    public final NumberSetting leftY = new NumberSetting("Текст", 0.0f, -1.0f, 1.0f, 0.1f);
-    public final NumberSetting leftZ = new NumberSetting("Текст", 0.0f, -1.0f, 1.0f, 0.1f);
-    public final NumberSetting leftScale = new NumberSetting("Текст", 1.0f, 0.5f, 1.5f, 0.05f);
+    public final NumberSetting leftX = new NumberSetting("L ef tX", 0.0f, -1.0f, 1.0f, 0.1f);
+    public final NumberSetting leftY = new NumberSetting("L ef tY", 0.0f, -1.0f, 1.0f, 0.1f);
+    public final NumberSetting leftZ = new NumberSetting("L ef tZ", 0.0f, -1.0f, 1.0f, 0.1f);
+    public final NumberSetting leftScale = new NumberSetting("L ef tS ca le", 1.0f, 0.5f, 1.5f, 0.05f);
 
     public final NumberSetting rightX = new NumberSetting("Правая рука X", 0.0f, -1.0f, 1.0f, 0.1f);
     public final NumberSetting rightY = new NumberSetting("Правая рука Y", 0.0f, -1.0f, 1.0f, 0.1f);
@@ -49,3 +49,4 @@ public final class ViewModel extends Module {
         }
     }
 }
+

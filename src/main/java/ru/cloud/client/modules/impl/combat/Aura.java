@@ -1,4 +1,4 @@
-package ru.cloud.client.modules.impl.combat;
+﻿package ru.cloud.client.modules.impl.combat;
 
 import com.darkmagician6.eventapi.EventTarget;
 import lombok.Getter;
@@ -42,14 +42,14 @@ import java.util.Random;
 
 import static ru.cloud.utility.game.player.MovingUtil.fixMovement;
 
-@ModuleAnnotation(name = "Aura", category = Category.COMBAT, description = "Текст")
+@ModuleAnnotation(name = "Aura", category = Category.COMBAT, description = "Settings for Aura")
 public final class Aura extends Module {
 
     public static final Aura INSTANCE = new Aura();
     private Aura() {}
 
     
-    private final ModeSetting rotationMode = new ModeSetting("Текст");
+    private final ModeSetting rotationMode = new ModeSetting("Режим ротации");
     private final ModeSetting.Value hvh = new ModeSetting.Value(rotationMode, "ХВХ");
     private final ModeSetting.Value hollyworld = new ModeSetting.Value(rotationMode, "HollyWorld").select();
     private final ModeSetting.Value aimAssist = new ModeSetting.Value(rotationMode, "AimAssist");
@@ -58,55 +58,55 @@ public final class Aura extends Module {
     private final ModeSetting.Value spooky = new ModeSetting.Value(rotationMode, "SpookyTime");
     private final ModeSetting.Value reallyworld = new ModeSetting.Value(rotationMode, "ReallyWorld");
     private final ModeSetting.Value matrix = new ModeSetting.Value(rotationMode, "Matrix");
-    private final ModeSetting.Value test = new ModeSetting.Value(rotationMode, "Текст");
+    private final ModeSetting.Value test = new ModeSetting.Value(rotationMode, "Test");
 
     // AimAssist ���������
-    private final NumberSetting aimAssistSpeed = new NumberSetting("Текст", 7.5f, 1f, 20f, 0.5f, () -> aimAssist.isSelected());
+    private final NumberSetting aimAssistSpeed = new NumberSetting("A im As si st Sp ee d", 7.5f, 1f, 20f, 0.5f, () -> aimAssist.isSelected());
     private final BooleanSetting aimAssistRandomize = new BooleanSetting("AA Рандомизация", false, () -> aimAssist.isSelected());
 
     
-    private final ModeSetting aaHitboxMode = new ModeSetting("Текст", () -> aimAssist.isSelected());
+    private final ModeSetting aaHitboxMode = new ModeSetting("Прицел по хитбоксу", () -> aimAssist.isSelected());
     private final ModeSetting.Value aaHitboxOff    = new ModeSetting.Value(aaHitboxMode, "Выкл").select();
     private final ModeSetting.Value aaHitboxEdge   = new ModeSetting.Value(aaHitboxMode, "К краю");
-    private final ModeSetting.Value aaHitboxCenter = new ModeSetting.Value(aaHitboxMode, "Текст");
+    private final ModeSetting.Value aaHitboxCenter = new ModeSetting.Value(aaHitboxMode, "Центр");
     // ������ �� ���� �������� (������ ����� �� ����)
-    private final NumberSetting aaHitboxPadding = new NumberSetting("Текст", 0.05f, 0f, 0.5f, 0.01f,
+    private final NumberSetting aaHitboxPadding = new NumberSetting("Отступ хитбокса", 0.05f, 0f, 0.5f, 0.01f,
             () -> aimAssist.isSelected() && !aaHitboxOff.isSelected());
 
     
     private final ModeSetting sprintMode = new ModeSetting("Бег");
     private final ModeSetting.Value sprintHvh = new ModeSetting.Value(sprintMode, "ХВХ");
     private final ModeSetting.Value sprintNormal = new ModeSetting.Value(sprintMode, "Нормал").select();
-    private final ModeSetting.Value sprintLegit = new ModeSetting.Value(sprintMode, "Текст");
-    private final ModeSetting.Value sprintNone = new ModeSetting.Value(sprintMode, "Текст");
+    private final ModeSetting.Value sprintLegit = new ModeSetting.Value(sprintMode, "Легит");
+    private final ModeSetting.Value sprintNone = new ModeSetting.Value(sprintMode, "Без спринта");
 
     // ��������� ��������
-    private final ModeSetting correction = new ModeSetting("Текст");
+    private final ModeSetting correction = new ModeSetting("Коррекция движения");
     private final ModeSetting.Value correctionFocus = new ModeSetting.Value(correction, "Фокус");
     private final ModeSetting.Value correctionGood = new ModeSetting.Value(correction, "Свободная").select();
-    private final ModeSetting.Value correctionNone = new ModeSetting.Value(correction, "Текст");
+    private final ModeSetting.Value correctionNone = new ModeSetting.Value(correction, "Без коррекции");
 
     // ?????????
-    private final NumberSetting distance = new NumberSetting("Текст", 3, 0.5f, 6, 0.1f, "Текст");
-    private final NumberSetting distanceRotation = new NumberSetting("Текст", 0.1f, 0, 6, 0.1f);
+    private final NumberSetting distance = new NumberSetting("Дистанция", 3, 0.5f, 6, 0.1f, "Радиус атаки");
+    private final NumberSetting distanceRotation = new NumberSetting("Дистанция ротации", 0.1f, 0, 6, 0.1f);
 
     // ������ ���������
-    private final MultiBooleanSetting settings = new MultiBooleanSetting("Текст");
-    private final MultiBooleanSetting.Value shieldBreak = new MultiBooleanSetting.Value(settings, "Текст", true);
-    private final MultiBooleanSetting.Value shielRealese = new MultiBooleanSetting.Value(settings, "Текст", true);
-    private final MultiBooleanSetting.Value eatUseAttack = new MultiBooleanSetting.Value(settings, "Текст", true);
-    private final MultiBooleanSetting.Value attackIgnoreWals = new MultiBooleanSetting.Value(settings, "Текст", true);
+    private final MultiBooleanSetting settings = new MultiBooleanSetting("Настройки");
+    private final MultiBooleanSetting.Value shieldBreak = new MultiBooleanSetting.Value(settings, "Ломать щит", true);
+    private final MultiBooleanSetting.Value shielRealese = new MultiBooleanSetting.Value(settings, "Отпускать щит", true);
+    private final MultiBooleanSetting.Value eatUseAttack = new MultiBooleanSetting.Value(settings, "Атаковать во время еды", true);
+    private final MultiBooleanSetting.Value attackIgnoreWals = new MultiBooleanSetting.Value(settings, "Игнорировать стены", true);
 
     // ���� �����
-    private final MultiBooleanSetting targetTypeSetting = MultiBooleanSetting.create("Текст", List.of("Текст", "Текст", "Текст"));
+    private final MultiBooleanSetting targetTypeSetting = MultiBooleanSetting.create("Цели", List.of("Игроки", "Мобы", "Животные"));
 
     // �����
-    private final BooleanSetting onlyCrit = new BooleanSetting("Текст", true);
-    private final BooleanSetting smartCrit = new BooleanSetting("Текст", "Текст", false, onlyCrit::isEnabled);
+    private final BooleanSetting onlyCrit = new BooleanSetting("Только криты", true);
+    private final BooleanSetting smartCrit = new BooleanSetting("Умные криты", "Умные криты", false, onlyCrit::isEnabled);
 
     // FakeLag
-    private final BooleanSetting fakeLag = new BooleanSetting("FakeLag [Beta]", "Текст", false);
-    private final NumberSetting fakeLagDelay = new NumberSetting("Текст", 200f, 50f, 1000f, 10f, fakeLag::isEnabled);
+    private final BooleanSetting fakeLag = new BooleanSetting("FakeLag [Beta]", "Задержка пакетов", false);
+    private final NumberSetting fakeLagDelay = new NumberSetting("Задержка FakeLag", 200f, 50f, 1000f, 10f, fakeLag::isEnabled);
     private final NumberSetting fakeLagRelease = new NumberSetting("FL Сброс (мс)", 100f, 10f, 500f, 10f, fakeLag::isEnabled);
 
     // private
@@ -876,4 +876,5 @@ public final class Aura extends Module {
         return this.isEnabled() ? target : null;
     }
 }
+
 

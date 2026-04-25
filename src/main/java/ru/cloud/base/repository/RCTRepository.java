@@ -1,4 +1,4 @@
-package ru.cloud.base.repository;
+﻿package ru.cloud.base.repository;
 
 import com.darkmagician6.eventapi.EventManager;
 import com.darkmagician6.eventapi.EventTarget;
@@ -57,7 +57,7 @@ public class RCTRepository implements IClient {
             return;
         }
 
-        if (mc.currentScreen instanceof GenericContainerScreen screen && screen.getTitle().getString().equals("Текст"))  {
+        if (mc.currentScreen instanceof GenericContainerScreen screen && screen.getTitle().getString().equals("Выбор режима"))  {
             boolean secondScreen = screen.getScreenHandler().getInventory().size() < 10;
             int[] slots = anarchy < 15 ? new int[]{0, 0} : anarchy < 33 ? new int[]{1, 14} : anarchy < 48 ? new int[]{2, 32} : new int[]{3, 47};
             if (secondScreen) PlayerInventoryUtil.clickSlot(slots[0], 0, SlotActionType.PICKUP, false);
@@ -77,3 +77,4 @@ public class RCTRepository implements IClient {
         }
     }
 }
+

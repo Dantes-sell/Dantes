@@ -1,4 +1,4 @@
-package ru.cloud.client.screens.mainmenu;
+﻿package ru.cloud.client.screens.mainmenu;
 
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.Screen;
@@ -34,9 +34,9 @@ public class MainMenuScreen extends Screen implements IMinecraft {
     private static final ColorRGBA CLOCK_COLOR = new ColorRGBA(190, 160, 255, 255); // soft lavender
     private static final ColorRGBA PARTICLE_C  = new ColorRGBA(160, 100, 255, 180); // particle
 
-    private static final String EASTER_LINE1 = "Текст";
-    private static final String EASTER_LINE2 = "Текст";
-    private static final String EASTER_LINE3 = "Текст";
+    private static final String EASTER_LINE1 = "Добро пожаловать в Dantes Client";
+    private static final String EASTER_LINE2 = "Спасибо, что используете наш клиент";
+    private static final String EASTER_LINE3 = "Присоединяйтесь к Discord";
     private static final String DISCORD_URL  = "dsc.gg/cloudsosal";
     private static final String DISCORD_LABEL = "  Discord сервер  ";
 
@@ -435,3 +435,4 @@ public class MainMenuScreen extends Screen implements IMinecraft {
         boolean isRightHovered(double mx, double my) { return mx>x+width/2+1&&mx<=x+width&&my>=y&&my<=y+height; }
     }
 }
+

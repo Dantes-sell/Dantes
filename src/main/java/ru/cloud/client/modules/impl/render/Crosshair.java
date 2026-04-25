@@ -1,4 +1,4 @@
-package ru.cloud.client.modules.impl.render;
+﻿package ru.cloud.client.modules.impl.render;
 
 import net.minecraft.client.option.Perspective;
 import net.minecraft.util.hit.HitResult;
@@ -14,19 +14,19 @@ import ru.cloud.utility.render.display.base.color.ColorRGBA;
 
 
 // ������ ��������
-@ModuleAnnotation(name = "Crosshair", category = Category.RENDER, description = "Текст")
+@ModuleAnnotation(name = "Crosshair", category = Category.RENDER, description = "Settings for Crosshair")
 public final class Crosshair extends Module {
     public static final Crosshair INSTANCE = new Crosshair();
     
     private Crosshair() {
     }
 
-    private final NumberSetting thickness = new NumberSetting("Текст", 1.0f, 0.5f, 3.0f, 0.1f);
+    private final NumberSetting thickness = new NumberSetting("T hi ck ne ss", 1.0f, 0.5f, 3.0f, 0.1f);
     private final NumberSetting length = new NumberSetting("Длина", 3.0f, 1.0f, 8.0f, 0.5f);
-    private final NumberSetting gap = new NumberSetting("Текст", 2.0f, 0.0f, 5.0f, 0.5f);
-    private final BooleanSetting dynamicGap = new BooleanSetting("Текст", false);
+    private final NumberSetting gap = new NumberSetting("G ap", 2.0f, 0.0f, 5.0f, 0.5f);
+    private final BooleanSetting dynamicGap = new BooleanSetting("D yn am ic Ga p", false);
 
-    private final BooleanSetting useEntityColor = new BooleanSetting("Текст", false);
+    private final BooleanSetting useEntityColor = new BooleanSetting("U se En ti ty Co lo r", false);
 
 
     private final ColorRGBA entityColor = new ColorRGBA(255, 0, 0, 255);
@@ -79,3 +79,4 @@ public final class Crosshair extends Module {
         ctx.drawRect(x, y, width, height, color);
     }
 }
+

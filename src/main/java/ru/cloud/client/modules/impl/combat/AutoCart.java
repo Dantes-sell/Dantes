@@ -1,4 +1,4 @@
-package ru.cloud.client.modules.impl.combat;
+﻿package ru.cloud.client.modules.impl.combat;
 
 import com.darkmagician6.eventapi.EventTarget;
 import net.minecraft.component.DataComponentTypes;
@@ -22,7 +22,7 @@ import ru.cloud.client.modules.api.setting.impl.BooleanSetting;
 import ru.cloud.client.modules.api.setting.impl.ModeSetting;
 import ru.cloud.utility.game.player.rotation.Rotation;
 
-@ModuleAnnotation(name = "AutoCart", category = Category.COMBAT, description = "Текст")
+@ModuleAnnotation(name = "AutoCart", category = Category.COMBAT, description = "Settings for AutoCart")
 public final class AutoCart extends Module {
 
     public static final AutoCart INSTANCE = new AutoCart();
@@ -32,7 +32,7 @@ public final class AutoCart extends Module {
     private final ModeSetting.Value preRail   = new ModeSetting.Value(modeSetting, "Pre-Rail").select();
     private final ModeSetting.Value instaCart = new ModeSetting.Value(modeSetting, "Insta-Cart");
 
-    private final BooleanSetting silentRotation = new BooleanSetting("Текст", "Текст", false);
+    private final BooleanSetting silentRotation = new BooleanSetting("S il en tR ot at io n", "S il en tR ot at io n", false);
 
     private enum State {
         IDLE,
@@ -273,3 +273,4 @@ public final class AutoCart extends Module {
         return -1;
     }
 }
+

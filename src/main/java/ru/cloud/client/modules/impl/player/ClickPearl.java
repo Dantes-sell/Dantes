@@ -1,4 +1,4 @@
-package ru.cloud.client.modules.impl.player;
+﻿package ru.cloud.client.modules.impl.player;
 
 import com.darkmagician6.eventapi.EventTarget;
 import net.minecraft.item.Items;
@@ -13,7 +13,7 @@ import ru.cloud.client.modules.api.setting.impl.BooleanSetting;
 import ru.cloud.client.modules.api.setting.impl.KeySetting;
 import ru.cloud.utility.game.player.PlayerInventoryUtil;
 
-@ModuleAnnotation(name = "ClickPearl", category = Category.PLAYER, description = "Текст")
+@ModuleAnnotation(name = "ClickPearl", category = Category.PLAYER, description = "Settings for ClickPearl")
 public final class ClickPearl extends Module {
     public static final ClickPearl INSTANCE = new ClickPearl();
 
@@ -114,3 +114,4 @@ public final class ClickPearl extends Module {
         pendingRestoreTicks = -1;
     }
 }
+

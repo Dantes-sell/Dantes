@@ -1,4 +1,4 @@
-package ru.cloud.base.autobuy.enchantes.container;
+﻿package ru.cloud.base.autobuy.enchantes.container;
 
 import ru.cloud.base.autobuy.enchantes.Enchant;
 import ru.cloud.base.autobuy.enchantes.custom.EnchantCustom;
@@ -16,66 +16,66 @@ public class EnchantContainer {
 
     static {
         ENCHANT_MAP.put("oxidation", "Окисление");
-        ENCHANT_MAP.put("detection", "Текст");
+        ENCHANT_MAP.put("detection", "Detection");
         ENCHANT_MAP.put("poison", "Яд");
         ENCHANT_MAP.put("vampirism", "Вампиризм");
-        ENCHANT_MAP.put("skilled", "Текст");
+        ENCHANT_MAP.put("skilled", "Skilled");
         ENCHANT_MAP.put("smelting", "Автоплавка");
-        ENCHANT_MAP.put("magnet", "Текст");
+        ENCHANT_MAP.put("magnet", "Magnet");
         ENCHANT_MAP.put("pinger", "Пингер");
-        ENCHANT_MAP.put("web", "Текст");
-        ENCHANT_MAP.put("buldozing", "Текст");
-        ENCHANT_MAP.put("pulling", "Текст");
-        ENCHANT_MAP.put("stupor", "Текст");
+        ENCHANT_MAP.put("web", "Web");
+        ENCHANT_MAP.put("buldozing", "Bulldozing");
+        ENCHANT_MAP.put("pulling", "Pulling");
+        ENCHANT_MAP.put("stupor", "Stupor");
         ENCHANT_MAP.put("demolishing", "Разрушение");
-        ENCHANT_MAP.put("returning", "Текст");
-        ENCHANT_MAP.put("scout", "Текст");
+        ENCHANT_MAP.put("returning", "Returning");
+        ENCHANT_MAP.put("scout", "Scout");
 
-        ENCHANT_MAP.put("minecraft:protection", "Текст");
-        ENCHANT_MAP.put("minecraft:fire_protection", "Текст");
-        ENCHANT_MAP.put("minecraft:feather_falling", "Текст");
-        ENCHANT_MAP.put("minecraft:blast_protection", "Текст");
-        ENCHANT_MAP.put("minecraft:projectile_protection", "Текст");
-        ENCHANT_MAP.put("minecraft:thorns", "Текст");
-        ENCHANT_MAP.put("minecraft:soul_speed", "Текст");
+        ENCHANT_MAP.put("minecraft:protection", "Protection");
+        ENCHANT_MAP.put("minecraft:fire_protection", "Fire Protection");
+        ENCHANT_MAP.put("minecraft:feather_falling", "Feather Falling");
+        ENCHANT_MAP.put("minecraft:blast_protection", "Blast Protection");
+        ENCHANT_MAP.put("minecraft:projectile_protection", "Projectile Protection");
+        ENCHANT_MAP.put("minecraft:thorns", "Thorns");
+        ENCHANT_MAP.put("minecraft:soul_speed", "Soul Speed");
 
         ENCHANT_MAP.put("minecraft:respiration", "Подводное дыхание");
-        ENCHANT_MAP.put("minecraft:depth_strider", "Текст");
-        ENCHANT_MAP.put("minecraft:aqua_affinity", "Текст");
+        ENCHANT_MAP.put("minecraft:depth_strider", "Depth Strider");
+        ENCHANT_MAP.put("minecraft:aqua_affinity", "Aqua Affinity");
         ENCHANT_MAP.put("minecraft:frost_walker", "Ледоход");
 
-        ENCHANT_MAP.put("minecraft:sharpness", "Текст");
+        ENCHANT_MAP.put("minecraft:sharpness", "Sharpness");
         ENCHANT_MAP.put("minecraft:smite", "Небесная кара");
-        ENCHANT_MAP.put("minecraft:bane_of_arthropods", "Текст");
-        ENCHANT_MAP.put("minecraft:knockback", "Текст");
-        ENCHANT_MAP.put("minecraft:fire_aspect", "Текст");
-        ENCHANT_MAP.put("minecraft:looting", "Текст");
-        ENCHANT_MAP.put("minecraft:sweeping_edge", "Текст");
+        ENCHANT_MAP.put("minecraft:bane_of_arthropods", "Bane of Arthropods");
+        ENCHANT_MAP.put("minecraft:knockback", "Knockback");
+        ENCHANT_MAP.put("minecraft:fire_aspect", "Fire Aspect");
+        ENCHANT_MAP.put("minecraft:looting", "Looting");
+        ENCHANT_MAP.put("minecraft:sweeping_edge", "Sweeping Edge");
 
-        ENCHANT_MAP.put("minecraft:efficiency", "Текст");
-        ENCHANT_MAP.put("minecraft:silk_touch", "Текст");
-        ENCHANT_MAP.put("minecraft:unbreaking", "Текст");
+        ENCHANT_MAP.put("minecraft:efficiency", "Efficiency");
+        ENCHANT_MAP.put("minecraft:silk_touch", "Silk Touch");
+        ENCHANT_MAP.put("minecraft:unbreaking", "Unbreaking");
         ENCHANT_MAP.put("minecraft:fortune", "Удача");
-        ENCHANT_MAP.put("minecraft:mending", "Текст");
-        ENCHANT_MAP.put("minecraft:impaling", "Текст");
+        ENCHANT_MAP.put("minecraft:mending", "Mending");
+        ENCHANT_MAP.put("minecraft:impaling", "Impaling");
 
         ENCHANT_MAP.put("minecraft:power", "Сила");
-        ENCHANT_MAP.put("minecraft:punch", "Текст");
+        ENCHANT_MAP.put("minecraft:punch", "Punch");
         ENCHANT_MAP.put("minecraft:flame", "Воспламенение");
-        ENCHANT_MAP.put("minecraft:infinity", "Текст");
-        ENCHANT_MAP.put("minecraft:piercing", "Текст");
-        ENCHANT_MAP.put("minecraft:multishot", "Текст");
-        ENCHANT_MAP.put("minecraft:quick_charge", "Текст");
+        ENCHANT_MAP.put("minecraft:infinity", "Infinity");
+        ENCHANT_MAP.put("minecraft:piercing", "Piercing");
+        ENCHANT_MAP.put("minecraft:multishot", "Multishot");
+        ENCHANT_MAP.put("minecraft:quick_charge", "Quick Charge");
 
         ENCHANT_MAP.put("minecraft:riptide", "Замедление");
-        ENCHANT_MAP.put("minecraft:loyalty", "Текст");
-        ENCHANT_MAP.put("minecraft:channeling", "Текст");
+        ENCHANT_MAP.put("minecraft:loyalty", "Loyalty");
+        ENCHANT_MAP.put("minecraft:channeling", "Channeling");
 
-        ENCHANT_MAP.put("minecraft:luck_of_the_sea", "Текст");
+        ENCHANT_MAP.put("minecraft:luck_of_the_sea", "Luck of the Sea");
         ENCHANT_MAP.put("minecraft:lure", "Приманка");
 
-        ENCHANT_MAP.put("minecraft:binding_curse", "Текст");
-        ENCHANT_MAP.put("minecraft:vanishing_curse", "Текст");
+        ENCHANT_MAP.put("minecraft:binding_curse", "Curse of Binding");
+        ENCHANT_MAP.put("minecraft:vanishing_curse", "Curse of Vanishing");
     }
 
 
@@ -111,3 +111,4 @@ public class EnchantContainer {
         return enchants;
     }
 }
+

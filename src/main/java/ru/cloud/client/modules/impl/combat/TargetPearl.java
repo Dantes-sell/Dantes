@@ -1,4 +1,4 @@
-package ru.cloud.client.modules.impl.combat;
+﻿package ru.cloud.client.modules.impl.combat;
 
 import com.darkmagician6.eventapi.EventTarget;
 import lombok.AccessLevel;
@@ -28,7 +28,7 @@ import java.util.stream.IntStream;
 import java.util.stream.StreamSupport;
 
 @FieldDefaults(level = AccessLevel.PRIVATE)
-@ModuleAnnotation(name = "TargetPearl", category = Category.COMBAT, description = "Текст")
+@ModuleAnnotation(name = "TargetPearl", category = Category.COMBAT, description = "Settings for TargetPearl")
 public final class TargetPearl extends Module {
 
     public static final TargetPearl INSTANCE = new TargetPearl();
@@ -38,8 +38,8 @@ public final class TargetPearl extends Module {
 
     final ModeSetting targetSetting = new ModeSetting("Цели", "Aura Target", "All");
 
-    final NumberSetting distanceSetting = new NumberSetting("Текст", 10f, 5f, 15f, 1f,
-            "Текст");
+    final NumberSetting distanceSetting = new NumberSetting("Дистанция", 10f, 5f, 15f, 1f,
+            "Максимальная дистанция до точки падения");
 
     @EventTarget
     public void onRotate(EventRotate e) {
@@ -158,4 +158,5 @@ public final class TargetPearl extends Module {
         return pos;
     }
 }
+
 

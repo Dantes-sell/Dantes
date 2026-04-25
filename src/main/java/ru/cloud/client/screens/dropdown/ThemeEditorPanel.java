@@ -1,4 +1,4 @@
-package ru.cloud.client.screens.dropdown;
+﻿package ru.cloud.client.screens.dropdown;
 
 import ru.cloud.Zenith;
 import ru.cloud.base.font.Fonts;
@@ -41,14 +41,14 @@ public class ThemeEditorPanel {
     private void buildColorRows() {
         colorRows.clear();
         Theme t = Theme.CUSTOM_THEME;
-        colorRows.add(new ThemeColorRow("Текст",      new ColorSetting("color",      t.getColor(),      Theme.DARK::getColor)));
-        colorRows.add(new ThemeColorRow("Текст",     new ColorSetting("second",     t.getSecondColor(),Theme.DARK::getSecondColor)));
+        colorRows.add(new ThemeColorRow("Основной",      new ColorSetting("color",      t.getColor(),      Theme.DARK::getColor)));
+        colorRows.add(new ThemeColorRow("Второй",     new ColorSetting("second",     t.getSecondColor(),Theme.DARK::getSecondColor)));
         colorRows.add(new ThemeColorRow("Фон гуи",            new ColorSetting("bg",         t.getBackgroundColor(), Theme.DARK::getBackgroundColor)));
-        colorRows.add(new ThemeColorRow("Текст",       new ColorSetting("fg",         t.getForegroundColor(), Theme.DARK::getForegroundColor)));
-        colorRows.add(new ThemeColorRow("Текст",        new ColorSetting("fgLight",    t.getForegroundLight(), Theme.DARK::getForegroundLight)));
-        colorRows.add(new ThemeColorRow("Текст",         new ColorSetting("fgDark",     t.getForegroundDark(),  Theme.DARK::getForegroundDark)));
+        colorRows.add(new ThemeColorRow("Передний план",       new ColorSetting("fg",         t.getForegroundColor(), Theme.DARK::getForegroundColor)));
+        colorRows.add(new ThemeColorRow("Передний светлый",        new ColorSetting("fgLight",    t.getForegroundLight(), Theme.DARK::getForegroundLight)));
+        colorRows.add(new ThemeColorRow("Передний тёмный",         new ColorSetting("fgDark",     t.getForegroundDark(),  Theme.DARK::getForegroundDark)));
         colorRows.add(new ThemeColorRow("Текст",     new ColorSetting("white",      t.getWhite(),      Theme.DARK::getWhite)));
-        colorRows.add(new ThemeColorRow("Текст",         new ColorSetting("gray",       t.getGray(),       Theme.DARK::getGray)));
+        colorRows.add(new ThemeColorRow("Текст серый",         new ColorSetting("gray",       t.getGray(),       Theme.DARK::getGray)));
     }
 
     public void render(CustomDrawContext ctx, int mouseX, int mouseY, float alpha, Theme theme) {
@@ -201,4 +201,5 @@ public class ThemeEditorPanel {
         }
     }
 }
+
 

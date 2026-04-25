@@ -1,4 +1,4 @@
-package ru.cloud.client.modules.impl.player;
+﻿package ru.cloud.client.modules.impl.player;
 
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
@@ -11,7 +11,7 @@ import ru.cloud.client.modules.api.ModuleAnnotation;
 import ru.cloud.client.modules.api.setting.impl.BooleanSetting;
 import ru.cloud.client.modules.api.setting.impl.NumberSetting;
 
-@ModuleAnnotation(name = "NoDelay", category = Category.PLAYER, description = "Текст")
+@ModuleAnnotation(name = "NoDelay", category = Category.PLAYER, description = "Settings for NoDelay")
 public final class NoDelay extends Module {
     public static final NoDelay INSTANCE = new NoDelay();
 
@@ -72,3 +72,4 @@ public final class NoDelay extends Module {
         jumpTimer = 0;
     }
 }
+

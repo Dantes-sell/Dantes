@@ -1,4 +1,4 @@
-package ru.cloud.client.modules.impl.misc;
+﻿package ru.cloud.client.modules.impl.misc;
 
 import com.darkmagician6.eventapi.EventTarget;
 import net.minecraft.block.BlockState;
@@ -263,7 +263,7 @@ public final class ServerHelper extends Module {
         }
 
         if (e.getPacket() instanceof OpenScreenS2CPacket openScreen
-                && openScreen.getName().getString().contains("Р В РЎР‹Р С”Р В·Р В°Р С”")
+                && openScreen.getName().getString().contains("Р СЋРєР·Р°Рє")
                 && !stacks.isEmpty()) {
             shulkerScriptPending = true;
         }
@@ -290,7 +290,7 @@ public final class ServerHelper extends Module {
                     ).toCenterPos();
                     if ("пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ".equals(name)) {
                         addEvent(name, lvl, owner, center, 300, 0);
-                    } else if ("Р вЂ™РЎС“Р В»Р С”Р В°Р Р…".equals(name)) {
+                    } else if ("Р’СѓР»РєР°РЅ".equals(name)) {
                         addEvent(name, lvl, owner, center, 300, 120);
                     } else if ("пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ".equals(name)
                             || "пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ".equals(name)
@@ -303,7 +303,7 @@ public final class ServerHelper extends Module {
                     switch (name) {
                         case "пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ" ->
                                 addEvent(name, lvl, owner, BlockPos.ofFloored(-155, 64, 205).toCenterPos(), 300, 0);
-                        case "Р С’Р Т‘РЎРѓР С”Р В°РЎРЏ РЎР‚Р ВµР В·Р Р…РЎРЏ" ->
+                        case "РђРґСЃРєР°СЏ СЂРµР·РЅСЏ" ->
                                 addEvent(name, lvl, owner, BlockPos.ofFloored(48, 87, 73).toCenterPos(), 180, 120);
                     }
                 }
@@ -327,7 +327,7 @@ public final class ServerHelper extends Module {
     @EventTarget
     public void onSetScreen(EventSetScreen e) {
         if (e.getScreen() instanceof GenericContainerScreen screen
-                && screen.getTitle().getString().contains("Р В РЎР‹Р С”Р В·Р В°Р С”")
+                && screen.getTitle().getString().contains("Р СЋРєР·Р°Рє")
                 && shulkerScriptPending) {
             e.setScreen(null);
         }
@@ -467,7 +467,7 @@ public final class ServerHelper extends Module {
                 float cd = mc.player.getItemCooldownManager().getCooldownProgress(info.item.getDefaultStack(), 0f);
                 if (cd <= 0) continue;
                 int seconds = Math.round(cd);
-                String text = info.displayName + ": " + seconds + "Р РЋР С“";
+                String text = info.displayName + ": " + seconds + "РЎРѓ";
                 float w = Fonts.MEDIUM.getWidth(text, 7f) + 8;
                 e.getContext().drawRoundedRect(x - w, y, w, 13,
                         BorderRadius.all(4),
@@ -516,7 +516,7 @@ public final class ServerHelper extends Module {
                     if (screen.z > 0 && screen.z < 1) {
                         float sx = (float) screen.x;
                         float sy = (float) screen.y;
-                        String dist = (int) mc.player.getPos().distanceTo(ev.center) + "Р В РЎВ";
+                        String dist = (int) mc.player.getPos().distanceTo(ev.center) + "Р С";
                         float dw = Fonts.MEDIUM.getWidth(dist, 6.5f) + 6;
                         e.getContext().drawRoundedRect(sx - dw / 2, sy - 8, dw, 12,
                                 BorderRadius.all(3),
@@ -531,3 +531,4 @@ public final class ServerHelper extends Module {
         }
     }
 }
+

@@ -1,4 +1,4 @@
-package ru.cloud.client.modules.impl.combat;
+﻿package ru.cloud.client.modules.impl.combat;
 
 import com.darkmagician6.eventapi.EventTarget;
 import net.minecraft.block.Block;
@@ -30,24 +30,24 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.stream.IntStream;
 
-@ModuleAnnotation(name = "AutoTotem", category = Category.COMBAT, description = "Текст")
+@ModuleAnnotation(name = "AutoTotem", category = Category.COMBAT, description = "Settings for AutoTotem")
 public final class AutoTotem extends Module {
 
     public static final AutoTotem INSTANCE = new AutoTotem();
 
-    private final NumberSetting health = new NumberSetting("Текст", 5.0f, 1.0f, 20.0f, 0.5f);
-    private final NumberSetting healthElytra = new NumberSetting("Текст", 9.0f, 1.0f, 20.0f, 0.5f);
+    private final NumberSetting health = new NumberSetting("Здоровье", 5.0f, 1.0f, 20.0f, 0.5f);
+    private final NumberSetting healthElytra = new NumberSetting("Здоровье с элитрой", 9.0f, 1.0f, 20.0f, 0.5f);
     private final NumberSetting healthNoArmor = new NumberSetting("Без полной брони", 8.0f, 1.0f, 20.0f, 0.5f);
     private final MultiBooleanSetting checks = new MultiBooleanSetting(
             "Проверки на",
-            new MultiBooleanSetting.Value("Текст", true),
-            new MultiBooleanSetting.Value("Текст", true),
+            new MultiBooleanSetting.Value("Поглощение", true),
+            new MultiBooleanSetting.Value("Кристаллы рядом", true),
             new MultiBooleanSetting.Value("Падение", true),
-            new MultiBooleanSetting.Value("Текст", true)
+            new MultiBooleanSetting.Value("Игрок с кристаллом", true)
     );
-    private final BooleanSetting swapBack = new BooleanSetting("Текст", true);
-    private final BooleanSetting noBallSwitch = new BooleanSetting("Текст", false);
-    private final BooleanSetting saveEnchanted = new BooleanSetting("Текст", true);
+    private final BooleanSetting swapBack = new BooleanSetting("Вернуть предмет", true);
+    private final BooleanSetting noBallSwitch = new BooleanSetting("Не менять голову", false);
+    private final BooleanSetting saveEnchanted = new BooleanSetting("Беречь зачарованные", true);
 
     private int nonEnchantedTotems;
     private int totemCount;
@@ -116,7 +116,7 @@ public final class AutoTotem extends Module {
         ItemStack chest = mc.player.getEquippedStack(EquipmentSlot.CHEST);
         float currentHealth = mc.player.getHealth();
 
-        if (checks.isEnable("Текст")) {
+        if (checks.isEnable("Поглощение")) {
             currentHealth += mc.player.getAbsorptionAmount();
         }
 
@@ -159,7 +159,7 @@ public final class AutoTotem extends Module {
             fallDamage *= 0.2f;
         }
 
-        float absorption = checks.isEnable("Текст") ? mc.player.getAbsorptionAmount() : 0.0f;
+        float absorption = checks.isEnable("Поглощение") ? mc.player.getAbsorptionAmount() : 0.0f;
         fallDamage = Math.max(0.0f, fallDamage - absorption);
         return Math.min(fallDamage, mc.player.getMaxHealth());
     }
@@ -170,7 +170,7 @@ public final class AutoTotem extends Module {
             if (stack.isEmpty()) {
                 continue;
             }
-            if ("Текст".equals(stack.getName().getString())) {
+            if ("Аура Защиты".equals(stack.getName().getString())) {
                 return true;
             }
         }
@@ -178,7 +178,7 @@ public final class AutoTotem extends Module {
     }
 
     private boolean checkCrystalNear() {
-        if (!checks.isEnable("Текст")) {
+        if (!checks.isEnable("Кристаллы рядом")) {
             return false;
         }
 
@@ -191,7 +191,7 @@ public final class AutoTotem extends Module {
     }
 
     private boolean checkPlayerWithCrystalNearObsidian() {
-        if (!checks.isEnable("Текст")) {
+        if (!checks.isEnable("Игрок с кристаллом")) {
             return false;
         }
 
@@ -331,3 +331,4 @@ public final class AutoTotem extends Module {
         return slot < 9 ? slot + 36 : slot;
     }
 }
+

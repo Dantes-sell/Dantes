@@ -1,4 +1,4 @@
-package ru.cloud.client.modules.impl.render;
+﻿package ru.cloud.client.modules.impl.render;
 
 import com.darkmagician6.eventapi.EventTarget;
 import com.mojang.blaze3d.systems.RenderSystem;
@@ -37,7 +37,7 @@ import java.util.Random;
 @ModuleAnnotation(
         name = "CustomParticle",
         category = Category.RENDER,
-        description = "Текст"
+        description = "Кастомные частицы"
 )
 public final class CustomParticle extends Module {
 
@@ -52,7 +52,7 @@ public final class CustomParticle extends Module {
     private static final Identifier TEX_DANTES = Zenith.id("particles/dantes.png");
 
     
-    private final ModeSetting texType  = new ModeSetting("Текст", "Текст", "Текст", "Текст", "Dantes", "Текст");
+    private final ModeSetting texType  = new ModeSetting("Текстура", "Звезда", "Снег", "Dollar", "Dantes", "Микс");
     private final ModeSetting.Value texStar   = texType.getValues().get(0);
     private final ModeSetting.Value texSnow   = texType.getValues().get(1);
     private final ModeSetting.Value texDollar = texType.getValues().get(2);
@@ -60,44 +60,44 @@ public final class CustomParticle extends Module {
     private final ModeSetting.Value texMix    = texType.getValues().get(4);
 
     
-    private final BooleanSetting rainbow    = new BooleanSetting("Текст", false);
-    private final BooleanSetting themeColor = new BooleanSetting("Текст", true);
+    private final BooleanSetting rainbow    = new BooleanSetting("Радуга", false);
+    private final BooleanSetting themeColor = new BooleanSetting("Цвет темы", true);
 
     
     private final BooleanSetting walkEnabled = new BooleanSetting("Ходьба", true);
     private final NumberSetting  walkCount   = new NumberSetting("Кол-во (Ходьба)", 3, 1, 20, 1, walkEnabled::isEnabled);
-    private final NumberSetting  walkLife    = new NumberSetting("Текст", 30, 10, 120, 5, walkEnabled::isEnabled);
+    private final NumberSetting  walkLife    = new NumberSetting("Время жизни (Ходьба)", 30, 10, 120, 5, walkEnabled::isEnabled);
     private final NumberSetting  walkSize    = new NumberSetting("Размер (Ходьба)", 0.14f, 0.03f, 0.6f, 0.01f, walkEnabled::isEnabled);
-    private final NumberSetting  walkSpeed   = new NumberSetting("Текст", 0.06f, 0.01f, 0.3f, 0.01f, walkEnabled::isEnabled);
+    private final NumberSetting  walkSpeed   = new NumberSetting("Скорость (Ходьба)", 0.06f, 0.01f, 0.3f, 0.01f, walkEnabled::isEnabled);
     private final NumberSetting  walkDelaySetting = new NumberSetting("Задержка (Ходьба)", 3, 1, 10, 1, walkEnabled::isEnabled);
 
     
     private final BooleanSetting hitEnabled = new BooleanSetting("Удар", true);
     private final NumberSetting  hitCount   = new NumberSetting("Кол-во (Удар)", 8, 1, 40, 1, hitEnabled::isEnabled);
-    private final NumberSetting  hitLife    = new NumberSetting("Текст", 25, 10, 100, 5, hitEnabled::isEnabled);
+    private final NumberSetting  hitLife    = new NumberSetting("Время жизни (Удар)", 25, 10, 100, 5, hitEnabled::isEnabled);
     private final NumberSetting  hitSize    = new NumberSetting("Размер (Удар)", 0.18f, 0.03f, 0.6f, 0.01f, hitEnabled::isEnabled);
-    private final NumberSetting  hitSpeed   = new NumberSetting("Текст", 0.18f, 0.02f, 0.5f, 0.01f, hitEnabled::isEnabled);
+    private final NumberSetting  hitSpeed   = new NumberSetting("Скорость (Удар)", 0.18f, 0.02f, 0.5f, 0.01f, hitEnabled::isEnabled);
 
     
-    private final BooleanSetting throwEnabled = new BooleanSetting("Текст", true);
-    private final NumberSetting  throwCount   = new NumberSetting("Текст", 6, 1, 30, 1, throwEnabled::isEnabled);
-    private final NumberSetting  throwLife    = new NumberSetting("Текст", 25, 10, 100, 5, throwEnabled::isEnabled);
-    private final NumberSetting  throwSize    = new NumberSetting("Текст", 0.15f, 0.03f, 0.5f, 0.01f, throwEnabled::isEnabled);
-    private final NumberSetting  throwSpeed   = new NumberSetting("Текст", 0.12f, 0.02f, 0.4f, 0.01f, throwEnabled::isEnabled);
+    private final BooleanSetting throwEnabled = new BooleanSetting("Бросок", true);
+    private final NumberSetting  throwCount   = new NumberSetting("Кол-во (Бросок)", 6, 1, 30, 1, throwEnabled::isEnabled);
+    private final NumberSetting  throwLife    = new NumberSetting("Время жизни (Бросок)", 25, 10, 100, 5, throwEnabled::isEnabled);
+    private final NumberSetting  throwSize    = new NumberSetting("Размер (Бросок)", 0.15f, 0.03f, 0.5f, 0.01f, throwEnabled::isEnabled);
+    private final NumberSetting  throwSpeed   = new NumberSetting("Скорость (Бросок)", 0.12f, 0.02f, 0.4f, 0.01f, throwEnabled::isEnabled);
 
     
-    private final BooleanSetting jumpEnabled = new BooleanSetting("Текст", true);
-    private final NumberSetting  jumpCount   = new NumberSetting("Текст", 5, 1, 30, 1, jumpEnabled::isEnabled);
-    private final NumberSetting  jumpLife    = new NumberSetting("Текст", 30, 10, 120, 5, jumpEnabled::isEnabled);
-    private final NumberSetting  jumpSize    = new NumberSetting("Текст", 0.15f, 0.03f, 0.6f, 0.01f, jumpEnabled::isEnabled);
-    private final NumberSetting  jumpSpeed   = new NumberSetting("Текст", 0.10f, 0.02f, 0.4f, 0.01f, jumpEnabled::isEnabled);
+    private final BooleanSetting jumpEnabled = new BooleanSetting("Прыжок", true);
+    private final NumberSetting  jumpCount   = new NumberSetting("Кол-во (Прыжок)", 5, 1, 30, 1, jumpEnabled::isEnabled);
+    private final NumberSetting  jumpLife    = new NumberSetting("Время жизни (Прыжок)", 30, 10, 120, 5, jumpEnabled::isEnabled);
+    private final NumberSetting  jumpSize    = new NumberSetting("Размер (Прыжок)", 0.15f, 0.03f, 0.6f, 0.01f, jumpEnabled::isEnabled);
+    private final NumberSetting  jumpSpeed   = new NumberSetting("Скорость (Прыжок)", 0.10f, 0.02f, 0.4f, 0.01f, jumpEnabled::isEnabled);
 
     
-    private final BooleanSetting totemEnabled = new BooleanSetting("Текст", true);
-    private final NumberSetting  totemCount   = new NumberSetting("Текст", 30, 3, 100, 1, totemEnabled::isEnabled);
-    private final NumberSetting  totemLife    = new NumberSetting("Текст", 60, 20, 200, 5, totemEnabled::isEnabled);
-    private final NumberSetting  totemSize    = new NumberSetting("Текст", 0.22f, 0.05f, 0.7f, 0.01f, totemEnabled::isEnabled);
-    private final NumberSetting  totemSpeed   = new NumberSetting("Текст", 0.14f, 0.02f, 0.5f, 0.01f, totemEnabled::isEnabled);
+    private final BooleanSetting totemEnabled = new BooleanSetting("Тотем", true);
+    private final NumberSetting  totemCount   = new NumberSetting("Кол-во (Тотем)", 30, 3, 100, 1, totemEnabled::isEnabled);
+    private final NumberSetting  totemLife    = new NumberSetting("Время жизни (Тотем)", 60, 20, 200, 5, totemEnabled::isEnabled);
+    private final NumberSetting  totemSize    = new NumberSetting("Размер (Тотем)", 0.22f, 0.05f, 0.7f, 0.01f, totemEnabled::isEnabled);
+    private final NumberSetting  totemSpeed   = new NumberSetting("Скорость (Тотем)", 0.14f, 0.02f, 0.5f, 0.01f, totemEnabled::isEnabled);
 
     private static final byte TOTEM_STATUS = 35;
 
@@ -398,5 +398,6 @@ public final class CustomParticle extends Module {
         }
     }
 }
+
 
 

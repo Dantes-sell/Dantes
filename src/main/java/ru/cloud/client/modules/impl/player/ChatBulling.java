@@ -1,4 +1,4 @@
-package ru.cloud.client.modules.impl.player;
+﻿package ru.cloud.client.modules.impl.player;
 
 import com.darkmagician6.eventapi.EventTarget;
 import lombok.AccessLevel;
@@ -19,16 +19,16 @@ import java.util.List;
 import java.util.Random;
 
 @FieldDefaults(level = AccessLevel.PRIVATE)
-@ModuleAnnotation(name = "ChatBulling", category = Category.PLAYER, description = "Текст")
+@ModuleAnnotation(name = "ChatBulling", category = Category.PLAYER, description = "Settings for ChatBulling")
 public final class ChatBulling extends Module {
 
     public static final ChatBulling INSTANCE = new ChatBulling();
     private ChatBulling() {}
 
     final NumberSetting cooldown = new NumberSetting("Кулдаун (мс)", 3000f, 500f, 10000f, 100f,
-            "Текст");
+            "Задержка между сообщениями");
 
-    final BooleanSetting onlyOnHit = new BooleanSetting("Текст", false);
+    final BooleanSetting onlyOnHit = new BooleanSetting("Только при ударе", false);
 
     final Timer timer = new Timer();
     final Random random = new Random();
@@ -36,20 +36,20 @@ public final class ChatBulling extends Module {
     int lastHurtTime = 0;
 
     private static final List<String> MESSAGES = List.of(
-            "Текст",
-            "Текст",
-            "Текст",
-            "Текст",
-            "Текст",
-            "Текст",
-            "Текст",
-            "Текст",
-            "Текст",
+            "%s, учись играть.",
+            "%s, слишком легко.",
+            "%s, это было быстро.",
+            "%s, не твой день.",
+            "%s, попробуй еще раз.",
+            "%s, без шансов.",
+            "%s, GG.",
+            "%s, неплохая попытка.",
+            "%s, до следующего раунда.",
             "%s skill issue detected. CloudClient powered by gods",
             "%s L + ratio + CloudClient boost",
             "%s bro got cooked by CloudClient LMAOOO",
-            "Текст",
-            "Текст",
+            "%s, тренируйся дальше.",
+            "%s, реванш?",
             "%s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s"
     );
 
@@ -88,4 +88,5 @@ public final class ChatBulling extends Module {
         return AuraV2.INSTANCE.isEnabled() ? AuraV2.INSTANCE.getTarget() : null;
     }
 }
+
 

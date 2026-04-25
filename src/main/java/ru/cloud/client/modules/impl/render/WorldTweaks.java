@@ -1,4 +1,4 @@
-package ru.cloud.client.modules.impl.render;
+﻿package ru.cloud.client.modules.impl.render;
 
 import com.darkmagician6.eventapi.EventTarget;
 import com.mojang.blaze3d.systems.RenderSystem;
@@ -29,43 +29,43 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
-@ModuleAnnotation(name = "WorldTweaks", description = "Текст", category = Category.RENDER)
+@ModuleAnnotation(name = "WorldTweaks", description = "Settings for WorldTweaks", category = Category.RENDER)
 public final class WorldTweaks extends Module {
 
     // -- ???????????? ????????? ------------------------------------------------
     public final MultiBooleanSetting modeSetting =
-            MultiBooleanSetting.create("Текст", List.of("Текст", "Текст", "Текст", "Текст"));
+            MultiBooleanSetting.create("Эффекты", List.of("Яркость", "Туман", "Время", "Частицы"));
 
     public final NumberSetting brightSetting =
-            new NumberSetting("Текст", 1.0F, 0.0F, 1.0F, 0.1f, () -> modeSetting.isEnable(0));
+            new NumberSetting("Яркость", 1.0F, 0.0F, 1.0F, 0.1f, () -> modeSetting.isEnable(0));
 
     private final ColorSetting colorFog =
-            new ColorSetting("Текст", Zenith.getInstance().getThemeManager().getCurrentTheme().getColor());
+            new ColorSetting("Цвет тумана", Zenith.getInstance().getThemeManager().getCurrentTheme().getColor());
     public final NumberSetting distanceSetting =
-            new NumberSetting("Текст", 80, 10, 255, 5, () -> modeSetting.isEnable(1));
+            new NumberSetting("Дальность тумана", 80, 10, 255, 5, () -> modeSetting.isEnable(1));
 
     public final NumberSetting timeSetting =
-            new NumberSetting("Текст", 12, 0, 24, 1, () -> modeSetting.isEnable(2));
+            new NumberSetting("Время мира", 12, 0, 24, 1, () -> modeSetting.isEnable(2));
 
     // -- ????????? ????????? ---------------------------------------------------
-    private final ModeSetting particleType = new ModeSetting("Текст", () -> modeSetting.isEnable(3));
+    private final ModeSetting particleType = new ModeSetting("Тип частиц", () -> modeSetting.isEnable(3));
     private final ModeSetting.Value typeStars   = new ModeSetting.Value(particleType, "Звёзды").select();
     private final ModeSetting.Value typeSnow    = new ModeSetting.Value(particleType, "Снег");
-    private final ModeSetting.Value typeDollar  = new ModeSetting.Value(particleType, "Текст");
+    private final ModeSetting.Value typeDollar  = new ModeSetting.Value(particleType, "Dollar");
     private final ModeSetting.Value typeMixed   = new ModeSetting.Value(particleType, "Микс");
 
     private final NumberSetting maxParticles =
-            new NumberSetting("Текст", 60, 10, 200, 5, () -> modeSetting.isEnable(3));
+            new NumberSetting("Количество", 60, 10, 200, 5, () -> modeSetting.isEnable(3));
     private final NumberSetting particleSize =
             new NumberSetting("Размер", 0.8f, 0.2f, 2.5f, 0.1f, () -> modeSetting.isEnable(3));
     private final NumberSetting lifeTime =
-            new NumberSetting("Текст", 800f, 200f, 2000f, 50f, () -> modeSetting.isEnable(3));
+            new NumberSetting("Время жизни (мс)", 800f, 200f, 2000f, 50f, () -> modeSetting.isEnable(3));
     private final NumberSetting spawnRange =
             new NumberSetting("Радиус спавна", 25f, 5f, 80f, 5f, () -> modeSetting.isEnable(3));
     private final BooleanSetting particleRainbow =
             new BooleanSetting("Радуга", false, () -> modeSetting.isEnable(3));
     private final BooleanSetting particleTheme =
-            new BooleanSetting("Текст", true, () -> modeSetting.isEnable(3));
+            new BooleanSetting("Цвет темы", true, () -> modeSetting.isEnable(3));
 
     public static final WorldTweaks INSTANCE = new WorldTweaks();
 
@@ -292,4 +292,5 @@ public final class WorldTweaks extends Module {
         }
     }
 }
+
 

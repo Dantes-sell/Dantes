@@ -1,4 +1,4 @@
-package ru.cloud.client.modules.impl.misc;
+﻿package ru.cloud.client.modules.impl.misc;
 
 import com.darkmagician6.eventapi.EventTarget;
 import net.minecraft.client.network.PlayerListEntry;
@@ -20,21 +20,21 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-@ModuleAnnotation(name = "AutoDuels", category = Category.MISC,description = "Текст")
+@ModuleAnnotation(name = "AutoDuels", category = Category.MISC,description = "Settings for AutoDuels")
 public final class AutoDuels extends Module {
 
     public static final AutoDuels INSTANCE = new AutoDuels();
     private AutoDuels() {
     }
     private final ModeSetting mode = new ModeSetting( "Кит");
-    private final ModeSetting.Value shield = new ModeSetting.Value(mode, "Текст");
-    private final ModeSetting.Value shipi = new ModeSetting.Value(mode, "Текст");
+    private final ModeSetting.Value shield = new ModeSetting.Value(mode, "Щит");
+    private final ModeSetting.Value shipi = new ModeSetting.Value(mode, "Шипы");
     private final ModeSetting.Value bow = new ModeSetting.Value(mode, "Лук");
-    private final ModeSetting.Value totem = new ModeSetting.Value(mode, "Текст");
-    private final ModeSetting.Value noDebuff = new ModeSetting.Value(mode, "Текст");
-    private final ModeSetting.Value balls = new ModeSetting.Value(mode, "Текст");
+    private final ModeSetting.Value totem = new ModeSetting.Value(mode, "Тотем");
+    private final ModeSetting.Value noDebuff = new ModeSetting.Value(mode, "NoDebuff");
+    private final ModeSetting.Value balls = new ModeSetting.Value(mode, "Шары");
     private final ModeSetting.Value classik = new ModeSetting.Value(mode, "Классик");
-    private final ModeSetting.Value cheats = new ModeSetting.Value(mode, "Текст");
+    private final ModeSetting.Value cheats = new ModeSetting.Value(mode, "Cheats");
     private final ModeSetting.Value nezer = new ModeSetting.Value(mode, "Незер");
     {
         mode.setValue(classik);
@@ -63,9 +63,9 @@ public final class AutoDuels extends Module {
         if (mc.player.currentScreenHandler instanceof GenericContainerScreenHandler) {
             String title = mc.currentScreen.getTitle().getString();
 
-            if (title.contains("Текст")) {
+            if (title.contains("Выбор режима")) {
                 mc.interactionManager.clickSlot(mc.player.currentScreenHandler.syncId, mode.getValues().indexOf(mode.getRandomEnabledElement()), 0, SlotActionType.PICKUP, mc.player);
-            } else if (title.contains("Текст")) {
+            } else if (title.contains("Дуэли")) {
                 mc.interactionManager.clickSlot(mc.player.currentScreenHandler.syncId, 0, 0, SlotActionType.PICKUP, mc.player);
             }
         }
@@ -82,17 +82,17 @@ public final class AutoDuels extends Module {
                 this.toggle();
             }
             
-            if (msg.contains("Текст") && (msg.contains("Текст") || msg.contains("Текст") || msg.contains("Текст"))) {
+            if (msg.contains("не в сети") && (msg.contains("игрок") || msg.contains("нельзя") || msg.contains("ошибка"))) {
                 sent.clear();
                 this.toggle();
             }
             
-            if (msg.contains("Текст") || msg.contains("Текст") || msg.contains("Текст")) {
+            if (msg.contains("отклонил") || msg.contains("дуэль отменена") || msg.contains("бой завершен")) {
                 sent.clear();
                 this.toggle();
             }
 
-            if (msg.contains("Текст") || msg.contains("Текст")) {
+            if (msg.contains("входящая дуэль") || msg.contains("приглашение на дуэль")) {
                 event.cancel();
             }
         }
@@ -108,3 +108,4 @@ public final class AutoDuels extends Module {
         super.onEnable();
     }
 }
+
