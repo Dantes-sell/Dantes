@@ -3,7 +3,7 @@
     "versionId":  "20260505T094036Z",
     "generatedAtUtc":  "2026-05-05T09:40:36.0333685Z",
     "package":  {
-                    "url":  "https://example.com/downloads/clients/dantes-beta-1.21.4/client-package.zip",
+                    "url":  "https://raw.githubusercontent.com/Dantes-sell/Dantes/main/downloads/clients/dantes-beta-1.21.4/client-package.zip",
                     "sha256":  "a3ec68c4463cc9683a531e831565f97373fc282a5204a9cf68d45e35c678d02d",
                     "sizeBytes":  29398569
                 },
